@@ -11,8 +11,8 @@ class Head extends Component{
                     <li className="header-item">
                         <img src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2017/03/logo.png" alt="InterLink"/>
                     </li>
-                    <li className="header-item"><a className="head-link" href="#">Test</a></li>
-                    <li className="header-item"><a className="head-link" href="#">Test2</a></li>
+                    <li className="header-item"><a className="head-link" href="#">Головна</a></li>
+                    <li className="header-item"><a className="head-link" href="#">Moї активності</a></li>
                 </ul>
                 {/*<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"*/}
                         {/*aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">*/}
