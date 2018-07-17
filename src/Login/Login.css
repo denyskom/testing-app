@@ -1,0 +1,46 @@
+.custom-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-container {
+    background-color: rgba(221, 249, 229, 0.18);
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    padding: 20px 30px;
+
+    text-align: left;
+    max-width: 500px;
+    min-height: 500px;
+    width: 100%;
+    border: 2px solid grey;
+    border-radius: 2%;
+    box-sizing: border-box;
+
+
+}
+
+.inner-item {
+    box-sizing: border-box;
+}
+
+input {
+    min-width: 300px;
+    width: 100%;
+}
+
+button {
+    margin-top: 5px;
+}
+
+h3 {
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+
+
+
