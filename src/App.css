@@ -5,8 +5,13 @@
 
 
 .custom-container {
-    max-width: 1360px;
+    max-width: 900px;
     min-height: 1024px;
-    display: block;
+    width: 100%;
+    display: flex;
     margin: 0 auto;
+    background-color: white;
+    border-radius: 6px;
 }
+
+

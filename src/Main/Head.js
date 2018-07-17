@@ -7,7 +7,7 @@ class Head extends Component{
     render () {
         return (
             <nav className="custom-head">
-                <ul className="head-list navbar-nav">
+                <ul className="head-list">
                     <li className="header-item">
                         <img src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2017/03/logo.png" alt="InterLink"/>
                     </li>
