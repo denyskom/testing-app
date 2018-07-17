@@ -14,9 +14,9 @@ class Head extends Component{
                     <li className="header-item"><a className="head-link" href="#">Test</a></li>
                     <li className="header-item"><a className="head-link" href="#">Test2</a></li>
                 </ul>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                </button>
+                {/*<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"*/}
+                        {/*aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">*/}
+                {/*</button>*/}
             </nav>
         );
 
