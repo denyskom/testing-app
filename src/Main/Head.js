@@ -13,6 +13,7 @@ class Head extends Component{
                     </li>
                     <li className="header-item"><a className="head-link" href="#">Головна</a></li>
                     <li className="header-item"><a className="head-link" href="#">Moї активності</a></li>
+                    <li className="header-item"><a className="head-link" href="#">Moї дані</a></li>
                 </ul>
                 {/*<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"*/}
                         {/*aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">*/}
