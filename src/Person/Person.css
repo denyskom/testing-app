@@ -6,6 +6,7 @@
     margin: 0;
     display: flex;
     box-sizing: border-box;
+
 }
 
 .custom-column {
@@ -13,18 +14,79 @@
     min-height: 800px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    text-align: left;
 }
 
 #left{
     text-wrap: none;
-    background-color: lightgreen;
+    /*background-color: lightgreen;*/
     width: 40%;
     flex-shrink: 0;
 
 }
 
 #right {
-    background-color: lightblue;
+    /*background-color: lightblue;*/
     width: 60%;
+}
+
+#left img {
+    max-width: 300px;
+    border-radius: 4px;
+}
+
+#left .card {
+    max-width: 280px;
+    border: none;
+}
+
+#right .card {
+    min-height: 600px;
+    height: 100%;
+}
+
+#left p {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#left .info-glyph {
+    color:#00aadb
+}
+
+.edu h5{
+    margin-bottom: 4px;
+    /*background-color: #c8c8c8;*/
+    background-color: rgba(0, 201, 255, 0.24);
+    border-radius: 4px;
+    padding-left: 4px;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+    .splitter {
+        flex-flow: row wrap;
+    }
+
+    .custom-column {
+        align-items: center;
+        min-height: 0;
+        margin-bottom: 20px;
+    }
+
+    #left {
+        width: 100%;
+    }
+
+    #right {
+        width: 100%;
+    }
+
+    #left .card {
+        width: 100%;
+    }
 }
 
