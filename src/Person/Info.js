@@ -19,13 +19,13 @@ const info = (props) => {
             <div className="card-header">
                 <ul className="nav nav-tabs card-header-tabs">
                     <li className="nav-item">
-                        <a className={checkIfActive(1,props.id)}>Освіта</a>
+                        <button onClick={props.method} value="1" className={checkIfActive(1,props.id)}>Освіта</button>
                     </li>
                     <li className="nav-item">
-                        <a href="#" className={checkIfActive(2,props.id)}>Додаткова інформація</a>
+                        <button  onClick={props.method} value="2" className={checkIfActive(2,props.id)}>Додаткова інформація</button>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Активності</a>
+                        <button className="nav-link" href="#">Активності</button>
                     </li>
                 </ul>
             </div>

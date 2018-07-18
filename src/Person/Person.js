@@ -56,7 +56,8 @@ class Person extends Component {
     };
 
     changeMenu = (event) => {
-        let id = event.target.value;
+        let id = Number(event.target.value);
+        console.log("here: " + id);
         this.setState({menuId:id});
     };
 
