@@ -7,7 +7,7 @@ const activityCard = (props) => {
     return (
         <div className="activity-card">
             <div className="activity-item">
-                <h2><a href="#">{props.name}</a></h2>
+                <h2><a href="#">{props.title}</a></h2>
             </div>
             <div className="activity-item">
                 <p>{props.description}</p>

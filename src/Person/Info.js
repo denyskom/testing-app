@@ -1,5 +1,9 @@
 import React from 'react';
 
+const EDUCATION_ID = 1;
+const ADDITIONAL_INFO_ID = 2;
+const ACTIVITY_ID = 3;
+
 
 
 const info = (props) => {
@@ -19,13 +23,16 @@ const info = (props) => {
             <div className="card-header">
                 <ul className="nav nav-tabs card-header-tabs">
                     <li className="nav-item">
-                        <button onClick={props.method} value="1" className={checkIfActive(1,props.id)}>Освіта</button>
+                        <button onClick={props.method} value={EDUCATION_ID}
+                                className={checkIfActive(EDUCATION_ID,props.id)}>Освіта</button>
                     </li>
                     <li className="nav-item">
-                        <button  onClick={props.method} value="2" className={checkIfActive(2,props.id)}>Додаткова інформація</button>
+                        <button onClick={props.method} value={ADDITIONAL_INFO_ID}
+                                className={checkIfActive(ADDITIONAL_INFO_ID,props.id)}>Додаткова інформація</button>
                     </li>
                     <li className="nav-item">
-                        <button className="nav-link" href="#">Активності</button>
+                        <button onClick={props.method} value={ACTIVITY_ID}
+                                className={checkIfActive(ACTIVITY_ID,props.id)}>Активності</button>
                     </li>
                 </ul>
             </div>
