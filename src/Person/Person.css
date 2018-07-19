@@ -56,13 +56,20 @@
     color:#00aadb
 }
 
-.edu h5{
-    margin-bottom: 4px;
+.section h5{
+    margin-bottom: 8px;
     background-color: rgba(0, 201, 255, 0.24);
     border-radius: 4px;
     padding-left: 4px;
 }
 
+.section p{
+    padding-bottom: 16px;
+}
+
+.nav-item {
+    margin-left: 2px;
+}
 
 
 @media only screen and (max-width: 500px) {

@@ -13,7 +13,7 @@ const activityCard = (props) => {
                 <p>{props.description}</p>
             </div>
             <div className="activity-item">
-                <img src={props.imageUrl}/>
+                <img src={props.imageURL}/>
             </div>
             <button type="button" className="btn btn-info">Читати далі</button>
         </div>

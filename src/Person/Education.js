@@ -20,7 +20,6 @@ const education = (props) =>{
             <p className="card-text">{props.literature}</p>
         </div>
     );
-
 };
 
 export default education;
