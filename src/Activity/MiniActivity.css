@@ -1,0 +1,15 @@
+.min-activity.card {
+    margin-bottom: 20px;
+    max-height: 200px;
+}
+
+.min-activity p {
+    text-overflow: ellipsis;
+    max-height: 100px;
+    overflow: hidden;
+
+}
+
+.min-activity a h4 {
+    margin-bottom: 0;
+}

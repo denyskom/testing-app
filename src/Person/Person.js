@@ -3,8 +3,8 @@ import axios from 'axios';
 import './Person.css'
 import MainInfo from "./ContactInfo";
 import Info from "./Info";
-import Education from "./Education";
 import AdditionalInfo from "./AdditionalInfo";
+import MiniActivity from "../Activity/MiniActivity";
 
 const internUrl = "http://localhost:3004/people";
 
@@ -15,7 +15,7 @@ class Person extends Component {
         this.state = {
             isLoaded:false,
             person:{},
-            personId:"5b505f9d73a2bc254045ed3f",
+            personId:"5b51887e190b6020ef001637",
             menuId:1
         }
     }
@@ -26,7 +26,7 @@ class Person extends Component {
         })
     };
 
-    getEducationInfo = () => {
+    renderEducationInfo = () => {
         let person = this.state.person;
 
         let sections = [
@@ -44,7 +44,7 @@ class Person extends Component {
 
     };
 
-    getEditionalInfo = () => {
+    renderAdditionalInfo = () => {
         let person = this.state.person;
 
         let sections = [
@@ -59,18 +59,26 @@ class Person extends Component {
         return (<AdditionalInfo sections={sections}/>);
     };
 
+    renderActivityInfo = () => {
+        let activities = this.state.person.activities;
+        activities = activities.reverse();
+
+        return activities.map(activity => <MiniActivity key={activity.id} activity={activity}/>);
+    };
+
+
     selectMenu = () => {
         let menuId = this.state.menuId;
         if(menuId === 1) {
-            return this.getEducationInfo();
+            return this.renderEducationInfo();
         }
 
         if(menuId === 2) {
-            return this.getEditionalInfo();
+            return this.renderAdditionalInfo();
         }
 
         if(menuId === 3) {
-            return <h2>Activity</h2>;
+            return this.renderActivityInfo();
         }
 
     };

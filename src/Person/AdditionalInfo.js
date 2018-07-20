@@ -11,7 +11,6 @@ const additionalInfo = (props) =>{
                 </div>
             )
             }
-
         )
     };
 

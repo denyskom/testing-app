@@ -42,7 +42,7 @@
 }
 
 #right .card {
-    min-height: 600px;
+    /*min-height: 600px;*/
     height: 100%;
 }
 
@@ -54,6 +54,10 @@
 
 #left .info-glyph {
     color:#00aadb
+}
+
+.edu.card-body {
+    padding: 0 0 0 0;
 }
 
 .section h5{
@@ -69,6 +73,14 @@
 
 .nav-item {
     margin-left: 2px;
+}
+
+.info {
+    padding: 20px 20px;
+    min-height: 100%;
+}
+.general {
+    min-height: 600px;
 }
 
 

@@ -25,7 +25,8 @@ class ActivityPresentationList extends Component {
 
     renderActivities = () => {
         return this.state.activities.map(activity => {
-            return <ActivityCard title={activity.title}
+            return <ActivityCard key={activity.id}
+                                 title={activity.title}
                                  description={activity.description}
                                  imageURL={activity.imageURL}/>
         })

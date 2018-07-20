@@ -19,7 +19,7 @@ const info = (props) => {
 
 
     return (
-        <div className="card">
+        <div className="general card">
             <div className="card-header">
                 <ul className="nav nav-tabs card-header-tabs">
                     <li className="nav-item">
@@ -36,7 +36,9 @@ const info = (props) => {
                     </li>
                 </ul>
             </div>
-            {props.children}
+            <div className="info">
+                {props.children}
+            </div>
         </div>
     );
 
