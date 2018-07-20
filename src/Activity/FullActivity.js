@@ -38,7 +38,7 @@ class FullActivity extends Component {
         let activity = this.state.activity;
         return (
             <div>
-                
+
 
                 {this.renderTasks()}
             </div>
