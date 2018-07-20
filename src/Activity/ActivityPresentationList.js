@@ -34,7 +34,7 @@ class ActivityPresentationList extends Component {
 
     render() {
         if(!this.state.isLoaded) {
-            return(<h3>Loading...</h3>)
+            return(<div className="loader"></div>)
         }
 
         return(

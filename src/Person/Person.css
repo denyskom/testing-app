@@ -20,14 +20,12 @@
 
 #left{
     text-wrap: none;
-    /*background-color: lightgreen;*/
     width: 40%;
     flex-shrink: 0;
 
 }
 
 #right {
-    /*background-color: lightblue;*/
     width: 60%;
 }
 
@@ -42,7 +40,6 @@
 }
 
 #right .card {
-    /*min-height: 600px;*/
     height: 100%;
 }
 
@@ -106,5 +103,10 @@
     #left .card {
         width: 100%;
     }
+
 }
+
+@media only screen and (max-width: 493px) {
+
+ }
 

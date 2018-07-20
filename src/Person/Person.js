@@ -61,9 +61,8 @@ class Person extends Component {
 
     renderActivityInfo = () => {
         let activities = this.state.person.activities;
-        activities = activities.reverse();
 
-        return activities.map(activity => <MiniActivity key={activity.id} activity={activity}/>);
+        return activities.map(activity => <MiniActivity key={activity.id} activity={activity}/>).reverse();
     };
 
 
@@ -95,7 +94,7 @@ class Person extends Component {
 
     render() {
         if(!this.state.isLoaded) {
-            return(<h3>Loading...</h3>)
+            return(<div className="loader"></div>)
         }
 
         let person = this.state.person;
