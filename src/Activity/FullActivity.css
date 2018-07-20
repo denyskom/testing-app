@@ -1,0 +1,19 @@
+.activity-task {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}

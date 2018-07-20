@@ -7,7 +7,7 @@ const activityCard = (props) => {
     return (
         <div className="activity-card">
             <div className="activity-item">
-                <h2><a href="#">{props.title}</a></h2>
+                <h2><a href={props.URL}>{props.title}</a></h2>
             </div>
             <div className="activity-item">
                 <p>{props.description}</p>
@@ -15,7 +15,7 @@ const activityCard = (props) => {
             <div className="activity-item">
                 <img src={props.imageURL}/>
             </div>
-            <button type="button" className="btn btn-info">Читати далі</button>
+            <a href={props.URL} className="btn btn-info">Читати далі</a>
         </div>
     )
 

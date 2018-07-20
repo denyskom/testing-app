@@ -13,7 +13,6 @@
 .activity-item img {
     max-width: 100%;
     border-radius: 4px;
-
 }
 
 .activity-item h2 {
@@ -30,7 +29,7 @@ a:hover {
 }
 
 
-.activity-card button {
+.activity-card a {
     margin-top: 20px;
 }
 

@@ -3,7 +3,8 @@ import axios from 'axios';
 import ActivityCard from "./ActivityCard";
 import './List.css'
 
-const activityURL = "http://localhost:3004/activities";
+const activityServerURL = "http://localhost:3004/activities";
+const activityURL = "http://localhost:3000/activities";
 
 class ActivityPresentationList extends Component {
     constructor(props){
@@ -16,7 +17,7 @@ class ActivityPresentationList extends Component {
 
 
     componentDidMount() {
-        axios.get(activityURL).then(response => {
+        axios.get(activityServerURL).then(response => {
             let activities = response.data;
             activities.reverse();
             this.setState({activities:activities,isLoaded:true})
@@ -28,13 +29,14 @@ class ActivityPresentationList extends Component {
             return <ActivityCard key={activity.id}
                                  title={activity.title}
                                  description={activity.description}
+                                 URL={`${activityURL}/${activity._id}`}
                                  imageURL={activity.imageURL}/>
         })
     };
 
     render() {
         if(!this.state.isLoaded) {
-            return(<div className="loader"></div>)
+            return(<div className="loader"> </div>)
         }
 
         return(
