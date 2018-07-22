@@ -5,6 +5,7 @@ import {Route} from 'react-router-dom';
 import ActivityPresentationList from "../Activity/ActivityPresentationList";
 import Person from "../Person/Person";
 import FullActivity from "../Activity/FullActivity";
+import Registration from "../Registration/Registration";
 
 
 
@@ -17,6 +18,7 @@ const main = () => {
                     <Route path="/" exact component={ActivityPresentationList}/>
                     <Route path="/people" exact component={Person}/>
                     <Route path="/activities/:id" exact component={FullActivity}/>
+                    <Route path="/registration" exact component={Registration}/>
                 </main>
             </div>
         </div>

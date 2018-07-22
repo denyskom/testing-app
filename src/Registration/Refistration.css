@@ -1,0 +1,145 @@
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.dots {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.registration {
+    border: 1px solid rgba(211, 211, 211, 0.4);
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 850px;
+    width: 100%;
+    min-height: 400px;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(229, 229, 229, 0.6)
+            1px 1px 0;
+    text-align: left;
+}
+
+.registration button {
+    max-width: 100px;
+    width: 100%;
+    align-self: center;
+}
+
+.registration-block {
+    min-height: 300px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.registration-forms, .registration-img {
+    height: inherit;
+    min-height: inherit;
+    display:flex;
+
+}
+
+.registration-forms {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+    width: 60%;
+    flex-shrink: 0;
+}
+
+.registration-img {
+    text-wrap: none;
+    width: 40%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.registration-img img {
+    align-self: center;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+    /*padding: 20px 0;*/
+}
+
+.registration-forms input{
+    margin-top: 40px;
+    padding: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid rgba(229, 229, 229, 0.6);
+    border-radius: 0;
+    width: 45%;
+    transition: ease-in-out, border-bottom-color .4s ease-in-out;
+}
+
+.registration-forms input:focus{
+    outline: none;
+    border-bottom: 2px solid #00aadb;
+}
+
+.input-date {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.input-date label {
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 780px) {
+    .registration-img {
+        display: none;
+    }
+
+    .registration-forms {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .registration {
+        padding: 20px 20px;
+    }
+    .input-row {
+        flex-flow: column wrap;
+    }
+    .registration-forms input {
+        width: 100%;
+    }
+
+    .input-date {
+        flex-direction: column;
+    }
+}
+
+
