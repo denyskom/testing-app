@@ -8,10 +8,10 @@ const mainBlock =(props) => {
     return(
       <form className="registration-block">
           <div className="registration-forms">
-              <InputRow left="Прізвище" right="Ім'я"/>
-              <InputRow left="Email" right="Телефон"/>
-              <InputRow left="Пароль" right="Підтвердити пароль"/>
-              <DateRow/>
+              <InputRow isRequired={true} left="Прізвище" right="Ім'я"/>
+              <InputRow isRequired={true} left="Email" right="Телефон"/>
+              <InputRow isRequired={true} left="Пароль" right="Підтвердити пароль"/>
+              <DateRow isRequired={true}/>
           </div>
           <div className="registration-img">
              <img src={require('../Logo/logo2.png')} alt="InterLink"/>

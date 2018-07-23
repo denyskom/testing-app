@@ -17,5 +17,15 @@
     overflow:auto;
 }
 
+@media only screen and (max-width: 560px) {
+    .blank {
+        padding-top: 20px;
+        position: relative;
+    }
 
+    .App {
+        min-height: 825px;
+        height: 100%;
+    }
+}
 

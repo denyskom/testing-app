@@ -23,7 +23,6 @@ const educationBlock =(props) => {
     };
 
 
-
     return(
         <form className="registration-block">
             <div className="registration-forms">
@@ -34,7 +33,7 @@ const educationBlock =(props) => {
                         {getCourseOptions()}
                     </select>
                 </div>
-                <div className="labeled-input">
+                <div className="labeled-input required">
                     <label>Знання англійскої</label>
                     <select>
                         {getEnglishOptions()}

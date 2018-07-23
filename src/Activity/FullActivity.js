@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Task from "../Selection/Task";
+import Task from "../Tasks/Task";
 import './FullActivity.css'
+import CollapsibleButton from "../Collapsible/CollapsibleButton";
 
 const activityServerURL = "http://localhost:3004/activities";
 const stagesServerURL = "http://localhost:3004/stages";
@@ -38,8 +39,8 @@ class FullActivity extends Component {
         let activity = this.state.activity;
         return (
             <div>
-
-
+                <h2>{activity.title}</h2>
+                <CollapsibleButton/>
                 {this.renderTasks()}
             </div>
         );

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Registration.css'
 import MainBlock from "./MainBlock"
 import EducationBlock from "./EducationBlock";
+import AdditionalBlock from "./AdditionalBlock";
 
 const blocksCount = 3;
 
@@ -24,14 +25,24 @@ class Registration extends Component {
         }
 
         if(menuId === 3) {
-            return (<h2>Additional</h2>);
+            return (<AdditionalBlock/>);
         }
     };
 
-    changeMenu = (event) => {
+    nextMenu = (event) => {
+        event.preventDefault();
         let id = event.target.value;
         if(id <= 2) {
             id++;
+            this.setState({menuId:id});
+        }
+    };
+
+    previousMenu = (event) => {
+        event.preventDefault();
+        let id = event.target.value;
+        if(id > 0) {
+            id--;
             this.setState({menuId:id});
         }
     };
@@ -46,8 +57,13 @@ class Registration extends Component {
                     <span className="dot"> </span>
                     <span className="dot"> </span>
                 </div>
-                <button onClick={this.changeMenu} value={this.state.menuId} type="button"
-                        className="btn btn-outline-info">Далі</button>
+                <div className="buttons">
+                    <button onClick={this.previousMenu} value={this.state.menuId} type="button"
+                            className={this.state.menuId > 1?"btn btn-outline-info":"invisible"}>Назад</button>
+                    <button onClick={this.nextMenu} value={this.state.menuId} type="button"
+                            className="btn btn-outline-info">Далі</button>
+                </div>
+
             </div>
         )
     }
