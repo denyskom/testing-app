@@ -4,12 +4,17 @@ import './CollapsibleButton.css'
 
 
 const collapsibleButton = (props) => {
+    let underClass = "under-button";
+
+    if(!props.isOpened) {
+        underClass = "invisible"
+    }
     return (
         <div className="collapsible">
-            <button>Опис</button>
-            <p>
-                {props.information}
-            </p>
+            <button onClick={props.clicker}>Опис</button>
+            <div className={underClass}>
+                {props.children}
+            </div>
         </div>
     )
 };
