@@ -43,11 +43,11 @@
 }
 
 
-button{
+.login-container button{
     width: 60%;
 }
 
-h3 {
+.login-container h3 {
     margin-bottom: 10px;
 }
 

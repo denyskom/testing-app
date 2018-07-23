@@ -2,7 +2,7 @@ import React from 'react';
 
 const dateRow = (props) =>{
     return (
-        <div className="input-date">
+        <div className="labeled-input">
             <label>Дата народження:</label>
             <input id="inputDate" className="" type="date"/>
         </div>

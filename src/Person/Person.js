@@ -94,7 +94,7 @@ class Person extends Component {
 
     render() {
         if(!this.state.isLoaded) {
-            return(<div className="loader"></div>)
+            return(<div className="loader"> </div>)
         }
 
         let person = this.state.person;

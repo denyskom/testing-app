@@ -89,7 +89,7 @@
     /*padding: 20px 0;*/
 }
 
-.registration-forms input{
+.registration-forms  input, select{
     margin-top: 40px;
     padding: 0;
     border-left: none;
@@ -97,8 +97,12 @@
     border-top: none;
     border-bottom: 2px solid rgba(229, 229, 229, 0.6);
     border-radius: 0;
-    width: 45%;
+    /*width: 45%;*/
     transition: ease-in-out, border-bottom-color .4s ease-in-out;
+}
+
+.input-row input, select {
+    width: 45%;
 }
 
 .registration-forms input:focus{
@@ -106,15 +110,24 @@
     border-bottom: 2px solid #00aadb;
 }
 
-.input-date {
+.labeled-input {
     display: inline-flex;
     align-items: center;
     justify-content: space-around;
 }
+.labeled-input input, select{
+    width: 45%;
+}
 
-.input-date label {
+
+.labeled-input label {
     margin-top: 40px;
     margin-bottom: 0;
+    width: 45%;
+}
+
+.labeled-input select {
+    background-color: white;
 }
 
 @media only screen and (max-width: 780px) {
@@ -138,7 +151,7 @@
         width: 100%;
     }
 
-    .input-date {
+    .labeled-input {
         flex-direction: column;
     }
 }

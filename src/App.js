@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter}  from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Main from "./Main/Main";
 
