@@ -14,7 +14,7 @@ const mainBlock =(props) => {
               <DateRow/>
           </div>
           <div className="registration-img">
-             <img src={require('./logo2.png')} alt="InterLink"/>
+             <img src={require('../Logo/logo2.png')} alt="InterLink"/>
           </div>
       </form>
     );

@@ -7,6 +7,7 @@ import ActivityPresentationList from "../Activity/ActivityPresentationList";
 import Person from "../Person/Person";
 import FullActivity from "../Activity/FullActivity";
 import Registration from "../Registration/Registration";
+import Login from "../Login/Login";
 
 
 
@@ -29,6 +30,7 @@ const main = () => {
             <Route path="/index"  render={() =>
                 <div className="blank">
                     <Route path="/index/registration" exact component={Registration}/>
+                    <Route path="/index/login" exact component={Login}/>
                 </div>
             }/>
 
