@@ -21,6 +21,8 @@
 }
 
 .registration {
+    background-color: white;
+    align-self: center;
     border: 1px solid rgba(211, 211, 211, 0.4);
     padding: 30px 40px;
     display: flex;
@@ -29,7 +31,6 @@
     max-width: 850px;
     width: 100%;
     min-height: 400px;
-    height: 100%;
     border-radius: 10px;
     box-shadow: rgba(229, 229, 229, 0.6)
             1px 1px 0;

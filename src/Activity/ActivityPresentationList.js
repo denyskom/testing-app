@@ -4,7 +4,7 @@ import ActivityCard from "./ActivityCard";
 import './List.css'
 
 const activityServerURL = "http://localhost:3004/activities";
-const activityURL = "http://localhost:3000/activities";
+const activityURL = "http://localhost:3000/home/activities";
 
 class ActivityPresentationList extends Component {
     constructor(props){

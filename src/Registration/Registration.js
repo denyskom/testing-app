@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Refistration.css'
+import './Registration.css'
 import MainBlock from "./MainBlock";
 
 class Registration extends Component {
