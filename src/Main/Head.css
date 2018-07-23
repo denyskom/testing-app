@@ -24,9 +24,18 @@
     font-weight: 600;
 }
 
+.header-item-right {
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-right: 20px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
 .head-link {
     color:#a6a6a6;
     text-decoration: none;
+    align-self: center;
 }
 
 li.header-item :hover {
@@ -38,6 +47,11 @@ li.header-item :hover {
     margin-right: 30px;
     max-width: 200px;
 }
+
+.login-marker {
+    align-self: flex-end;
+}
+
 
 @media only screen and (max-width: 280px) {
     .header-item img {
