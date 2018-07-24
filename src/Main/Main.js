@@ -23,6 +23,7 @@ const main = () => {
                     <main className="custom-container">
                         <Route path="/home" exact component={ActivityPresentationList}/>
                         <Route path="/home/people" exact component={Person}/>
+                        <Route path="/home/people/:id" exact component={Person}/>
                         <Route path="/home/activities/:id" exact component={FullActivity}/>
                     </main>
                 </div>

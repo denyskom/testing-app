@@ -11,8 +11,8 @@ const mainBlock =(props) => {
       <form className="registration-block">
           <div className="registration-forms">
               <div className={requiredInputClass}>
-                  <Input onChange={changeHandler} name="name" item={person.name}/>
-                  <input  type="text"  placeholder="Прізвище"/>
+                  <Input onChange={changeHandler} name="firstName" item={person.firstName}/>
+                  <Input  onChange={changeHandler} name="lastName" item={person.lastName}/>
               </div>
               <div className={requiredInputClass}>
                   <Input onChange={changeHandler} name="email" item={person.email}/>

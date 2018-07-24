@@ -15,7 +15,9 @@ class Person extends Component {
         this.state = {
             isLoaded:false,
             person:{},
-            personId:"5b51887e190b6020ef001637",
+            personId:this.props.match.params.id?this.props.match.params.id:"5b51887e190b6020ef001637",
+            // personId:"5b5716515b2b55408143a1a9",
+
             menuId:1
         }
     }
@@ -103,7 +105,7 @@ class Person extends Component {
         return(
             <div className="splitter">
                 <div id="left" className="custom-column">
-                    <MainInfo name={person.name}
+                    <MainInfo name={`${person.firstName} ${person.lastName}`}
                               phone={person.phone}
                               email={person.email}
                               birthDate={this.parseDate(person.birth_date)}/>

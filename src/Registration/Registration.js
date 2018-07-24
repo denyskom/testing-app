@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+import {Redirect} from 'react-router-dom';
+
 import './Registration.css'
 import MainBlock from "./MainBlock"
 import EducationBlock from "./EducationBlock";
 import AdditionalBlock from "./AdditionalBlock";
 
+const internUrl = "http://localhost:3004/people";
 const blocksCount = 3;
 
 class Registration extends Component {
@@ -12,13 +16,22 @@ class Registration extends Component {
         this.state = {
             menuId:1,
             person: {
-                name: {elementType:'input',
+                firstName: {elementType:'input',
                     elementConfig: {
                     type:'text',
                         placeholder:'Ім\'я'
                     },
                     value:'',
                 },
+
+                lastName: {elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Прізвище'
+                    },
+                    value:'',
+                },
+
                 password: {elementType:'input',
                     elementConfig: {
                         type:'password',
@@ -182,6 +195,17 @@ class Registration extends Component {
         }
     };
 
+    registrationHandler = (event) => {
+        let person=this.state.person;
+        let transferPerson =  {};
+        for(let key in person) {
+            transferPerson = {...transferPerson, [key]:person[key].value}
+        }
+        console.log(transferPerson);
+        axios.post(internUrl,transferPerson)
+            .then(<Redirect to="../"/>).catch(e => console.log(e));
+    };
+
     onChangeHandler = (event) => {
         let name = (event.target.name);
         let value = event.target.value;
@@ -206,8 +230,11 @@ class Registration extends Component {
                 <div className="buttons">
                     <button onClick={this.previousMenu} value={this.state.menuId} type="button"
                             className={this.state.menuId > 1?"btn btn-outline-info":"invisible"}>Назад</button>
+                    <button onClick={this.registrationHandler} value={this.state.menuId} type="button"
+                            className="btn btn-outline-info">Зареєструватися</button>
                     <button onClick={this.nextMenu} value={this.state.menuId} type="button"
                             className="btn btn-outline-info">Далі</button>
+
                 </div>
 
             </div>
