@@ -57,7 +57,7 @@ class Registration extends Component {
                         ],
                     },
                     label:'Знання англійскої',
-                    value:'',
+                    value:'початковий (читаю та пишу зі словником)',
                 },
                 basics: {elementType:'input',
                     elementConfig: {
@@ -86,7 +86,7 @@ class Registration extends Component {
                         type:'text',
                         options: [1,2,3,4,5,6],
                     },
-                    value:'',
+                    value:'1',
                     label:'Курс:',
                 },
                 events:{elementType:'input',
@@ -129,7 +129,7 @@ class Registration extends Component {
                         ]
                     },
                     label:'Що, на Ваш погляд, найважливіше у майбутній роботі?',
-                    value:'',
+                    value:'Висока заробітня плата',
                 },
                 positiveSides:{elementType:'input',
                     elementConfig: {
@@ -152,15 +152,15 @@ class Registration extends Component {
     selectMenu = () => {
         let menuId = this.state.menuId;
         if(menuId === 1) {
-            return (<MainBlock person={this.state.person}/>);
+            return (<MainBlock person={this.state.person} changeHandler={this.onChangeHandler}/>);
         }
 
         if(menuId === 2) {
-            return (<EducationBlock person={this.state.person}/>);
+            return (<EducationBlock person={this.state.person } changeHandler={this.onChangeHandler}/>);
         }
 
         if(menuId === 3) {
-            return (<AdditionalBlock person={this.state.person}/>);
+            return (<AdditionalBlock person={this.state.person} changeHandler={this.onChangeHandler}/>);
         }
     };
 
@@ -180,6 +180,17 @@ class Registration extends Component {
             id--;
             this.setState({menuId:id});
         }
+    };
+
+    onChangeHandler = (event) => {
+        let name = (event.target.name);
+        let value = event.target.value;
+        let field = this.state.person[event.target.name];
+
+        this.setState({person: {
+                ...this.state.person,
+            [name]:{...field,
+                    value:value}}});
     };
 
     render() {

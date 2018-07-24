@@ -1,31 +1,30 @@
 import React from 'react';
-import DoubleInputRow from "./Rows/DoubleInputRow";
-import DateRow from "./Rows/DateRow";
 import Input from "./Input/Input";
 
 
 const mainBlock =(props) => {
     let requiredInputClass = "input-row required";
     let person = props.person;
+    let changeHandler = props.changeHandler;
 
     return(
       <form className="registration-block">
           <div className="registration-forms">
               <div className={requiredInputClass}>
-                  <Input item={person.name}/>
+                  <Input onChange={changeHandler} name="name" item={person.name}/>
                   <input  type="text"  placeholder="Прізвище"/>
               </div>
               <div className={requiredInputClass}>
-                  <Input item={person.email}/>
-                  <Input item={person.phone}/>
+                  <Input onChange={changeHandler} name="email" item={person.email}/>
+                  <Input onChange={changeHandler} name="phone" item={person.phone}/>
               </div>
               <div className={requiredInputClass}>
-                  <Input item={person.password}/>
-                  <input  type="password"  placeholder="Підтвердити пароль"/>
+                  <Input onChange={changeHandler} name="password" item={person.password}/>
+                  <input onChange={changeHandler} type="password"  placeholder="Підтвердити пароль"/>
               </div>
-              <div className="labeled-input">
-                  <label>{person.birth_date.label}</label>
-                  <Input item={person.birth_date}/>
+              <div className="labeled-input required">
+                  <label>Дата народження:</label>
+                  <Input onChange={changeHandler} name="birth_date" item={person.birth_date}/>
               </div>
           </div>
           <div className="registration-img">

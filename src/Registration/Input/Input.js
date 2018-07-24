@@ -8,14 +8,15 @@ const input = (props) =>{
 
     switch (item.elementType) {
         case('input'):
-            return(<input {...item.elementConfig}/>); //value
+            return(<input value={item.value} {...item.elementConfig} name={props.name}
+                          {...props}/>);
         case('select'):{
-            return(<select value={item.value}>
+            return(<select value={item.value} {...props}>
                 {renderOptions(item.elementConfig.options)}
             </select>);
         }
         case('date'):
-            return (<input value={item.value} {...item.elementConfig}/>);
+            return (<input {...props} onChange={props.onChange}  value={item.value} {...item.elementConfig} />);
 
     }
 
