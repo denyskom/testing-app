@@ -49,7 +49,7 @@ class Person extends Component {
 
         let sections = [
             {title:"Чому Ви хочете працювати в IT?:", inner:person.whyIT?person.whyIT:"No data"},
-            {title:"Якими технологіями Ви цікавитесь?:", inner:person.tehnologies?person.tehnologies:"No data"},
+            {title:"Якими технологіями Ви цікавитесь?:", inner:person.technologies?person.technologies:"No data"},
             {title:"Що, на Ваш погляд, найважливіше у майбутній роботі?:",
                 inner:person.mainInJob?person.mainInJob:"No data"},
             {title:"Вкажіть свої 5 позитивних рис характеру", inner:person.positiveSides?person.positiveSides:"No data"},

@@ -40,10 +40,11 @@ class Registration extends Component {
                     },
                     value:'',
                 },
-                birth_date:{elementType:'input',
+                birth_date:{elementType:'date',
                     elementConfig: {
                         type:'date',
                     },
+                    label:'Дата народження:',
                     value:'',
                 },
                 english:{elementType:'select',
@@ -55,6 +56,7 @@ class Registration extends Component {
                             "продвинутий (вільно спілкуюся на будь-які теми)"
                         ],
                     },
+                    label:'Знання англійскої',
                     value:'',
                 },
                 basics: {elementType:'input',
@@ -85,6 +87,7 @@ class Registration extends Component {
                         options: [1,2,3,4,5,6],
                     },
                     value:'',
+                    label:'Курс:',
                 },
                 events:{elementType:'input',
                     elementConfig: {
@@ -107,7 +110,7 @@ class Registration extends Component {
                     },
                     value:'',
                 },
-                tehnologies:{elementType:'input',
+                technologies:{elementType:'input',
                     elementConfig: {
                         type:'text',
                         placeholder:'Якими технологіями Ви цікавитесь?'
@@ -125,6 +128,7 @@ class Registration extends Component {
                             'Стабільність'
                         ]
                     },
+                    label:'Що, на Ваш погляд, найважливіше у майбутній роботі?',
                     value:'',
                 },
                 positiveSides:{elementType:'input',
@@ -148,15 +152,15 @@ class Registration extends Component {
     selectMenu = () => {
         let menuId = this.state.menuId;
         if(menuId === 1) {
-            return (<MainBlock/>);
+            return (<MainBlock person={this.state.person}/>);
         }
 
         if(menuId === 2) {
-            return (<EducationBlock/>);
+            return (<EducationBlock person={this.state.person}/>);
         }
 
         if(menuId === 3) {
-            return (<AdditionalBlock/>);
+            return (<AdditionalBlock person={this.state.person}/>);
         }
     };
 
