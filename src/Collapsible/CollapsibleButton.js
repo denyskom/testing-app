@@ -3,20 +3,39 @@ import './CollapsibleButton.css'
 
 
 
-const collapsibleButton = (props) => {
-    let underClass = "under-button";
 
-    if(!props.isOpened) {
-        underClass = "invisible"
+
+class CollapsibleButton extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpened:false,
+        };
     }
-    return (
-        <div className="collapsible">
-            <button onClick={props.clicker}>Опис</button>
-            <div className={underClass}>
-                {props.children}
-            </div>
-        </div>
-    )
-};
 
-export default collapsibleButton;
+    changeButtonSate = () => {
+        let current = this.state.isOpened;
+        this.setState({isOpened:!current});
+    };
+
+
+    render() {
+        let underClass = "under-button";
+
+        if(!this.state.isOpened) {
+            underClass = "invisible"
+        }
+
+        return(
+            <div className="collapsible">
+                <button onClick={this.changeButtonSate}>Детальніше</button>
+                <div className={underClass}>
+                    {this.props.children}
+                </div>
+            </div>
+        )
+    }
+
+}
+
+export default CollapsibleButton;

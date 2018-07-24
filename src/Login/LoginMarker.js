@@ -12,7 +12,7 @@ const loginMarker = (props) => {
                 <a href='../index/login' className="head-link">Вийти</a>
             </div>
             <div className={!props.isLogged?"marker-inner":"invisible"}>
-                <Enter className="enter-glyph"/>
+                <Enter size={26} className="enter-glyph"/>
                 <a href='../index/login' className="head-link">Увійти</a>
             </div>
         </div>

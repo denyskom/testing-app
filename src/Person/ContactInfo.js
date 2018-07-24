@@ -13,9 +13,9 @@ const contactInfo = (props) => {
                  alt="Profile photo"/>
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>
-                    <p>{props.phone}<Phone className="info-glyph"/></p>
-                    <p>{props.email}<Mail className="info-glyph"/></p>
-                    <p>{props.birthDate}<Birth className="info-glyph"/></p>
+                    <p>{props.phone}<Phone size={20} className="info-glyph"/></p>
+                    <p>{props.email}<Mail size={20} className="info-glyph"/></p>
+                    <p>{props.birthDate}<Birth size={20} className="info-glyph"/></p>
                 </div>
         </div>
 
