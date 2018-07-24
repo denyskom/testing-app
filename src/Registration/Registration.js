@@ -11,6 +11,137 @@ class Registration extends Component {
         super(props);
         this.state = {
             menuId:1,
+            person: {
+                name: {elementType:'input',
+                    elementConfig: {
+                    type:'text',
+                        placeholder:'Ім\'я'
+                    },
+                    value:'',
+                },
+                password: {elementType:'input',
+                    elementConfig: {
+                        type:'password',
+                        placeholder:'Пароль'
+                    },
+                    value:'',
+                },
+                email: {elementType:'input',
+                    elementConfig: {
+                        type:'email',
+                        placeholder:'Email'
+                    },
+                    value:'',
+                },
+                phone: {elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Телефон'
+                    },
+                    value:'',
+                },
+                birth_date:{elementType:'input',
+                    elementConfig: {
+                        type:'date',
+                    },
+                    value:'',
+                },
+                english:{elementType:'select',
+                    elementConfig: {
+                        type:'text',
+                        options: [
+                            "початковий (читаю та пишу зі словником)",
+                            "середній (вільно читаю та пишу, можу розмовляти на певні теми)",
+                            "продвинутий (вільно спілкуюся на будь-які теми)"
+                        ],
+                    },
+                    value:'',
+                },
+                basics: {elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Що ви знаєте з основ програмування?'
+                    },
+                    value:'',
+                },
+
+                university:{elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'ВНЗ'
+                    },
+                    value:'',
+                },
+                faculty:{elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Факультет'
+                    },
+                    value:'',
+                },
+                course:{elementType:'select',
+                    elementConfig: {
+                        type:'text',
+                        options: [1,2,3,4,5,6],
+                    },
+                    value:'',
+                },
+                events:{elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Чи відвідували ви додаткові курси чи івенти?'
+                    },
+                    value:'',
+                },
+                literature:{elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Які статті чи книги у сфері IT ви прочитали за останній рік?'
+                    },
+                    value:'',
+                },
+                whyIT:{elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Чому Ви хочете працювати в IT?'
+                    },
+                    value:'',
+                },
+                tehnologies:{elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Якими технологіями Ви цікавитесь?'
+                    },
+                    value:'',
+                },
+                mainInJob:{elementType:'select',
+                    elementConfig: {
+                        type:'text',
+                        options:[
+                            'Висока заробітня плата',
+                            'Можливість навчатись та розвиватись',
+                            'Дружній колектив',
+                            'Можливість реалізувати себе',
+                            'Стабільність'
+                        ]
+                    },
+                    value:'',
+                },
+                positiveSides:{elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Вкажіть свої 5 позитивних рис характеру'
+                    },
+                    value:'',
+                },
+                negativeSides:{elementType:'input',
+                    elementConfig: {
+                        type:'text',
+                        placeholder:'Вкажіть свої 5 негативних рис характеру'
+                    },
+                    value:'',
+                },
+            }
         }
     }
 

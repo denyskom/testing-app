@@ -48,11 +48,12 @@ class Person extends Component {
         let person = this.state.person;
 
         let sections = [
-            {title:"Чому Ви хочете працювати в IT?:", inner:person.why?person.why:"No data"},
+            {title:"Чому Ви хочете працювати в IT?:", inner:person.whyIT?person.whyIT:"No data"},
             {title:"Якими технологіями Ви цікавитесь?:", inner:person.tehnologies?person.tehnologies:"No data"},
-            {title:"Що, на Ваш погляд, найважливіше у майбутній роботі?:", inner:person.main?person.main:"No data"},
-            {title:"Вкажіть свої 5 позитивних рис характеру", inner:person.positive?person.positive:"No data"},
-            {title:"Вкажіть свої 5 негативних рис характеру", inner:person.negative?person.negative:"No data"},
+            {title:"Що, на Ваш погляд, найважливіше у майбутній роботі?:",
+                inner:person.mainInJob?person.mainInJob:"No data"},
+            {title:"Вкажіть свої 5 позитивних рис характеру", inner:person.positiveSides?person.positiveSides:"No data"},
+            {title:"Вкажіть свої 5 негативних рис характеру", inner:person.negativeSides?person.negativeSides:"No data"},
 
         ];
 
