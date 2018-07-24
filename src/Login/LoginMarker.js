@@ -10,15 +10,14 @@ const loginMarker = (props) => {
         <div>
             <div className={props.isLogged?"marker-inner":"invisible"}>
                 <img src={props.image?props.image:defaultImage}/>
-                <a href='../index/login' className="head-link">Вийти</a>
+                <a href='../../index/login' className="head-link">Вийти</a>
             </div>
             <div className={!props.isLogged?"marker-inner":"invisible"}>
                 <Enter size={26} className="enter-glyph"/>
-                <a href='../index/login' className="head-link">Увійти</a>
+                <a href='../../index/login' className="head-link">Увійти</a>
             </div>
         </div>
     )
 };
 
 export default loginMarker;
-// Material Design Icons => ./md

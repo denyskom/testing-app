@@ -15,12 +15,15 @@ class Registration extends Component {
         super(props);
         this.state = {
             menuId:1,
+            redirect:false,
+            isFormValid:true,
             person: {
                 firstName: {elementType:'input',
                     elementConfig: {
                     type:'text',
                         placeholder:'Ім\'я'
                     },
+                    required:true,
                     value:'',
                 },
 
@@ -29,6 +32,7 @@ class Registration extends Component {
                         type:'text',
                         placeholder:'Прізвище'
                     },
+                    required:true,
                     value:'',
                 },
 
@@ -37,13 +41,25 @@ class Registration extends Component {
                         type:'password',
                         placeholder:'Пароль'
                     },
+                    required:true,
                     value:'',
                 },
+
+                repeatPassword: {elementType:'input',
+                    elementConfig: {
+                        type:'password',
+                        placeholder:'Пароль'
+                    },
+                    required:true,
+                    value:'',
+                },
+
                 email: {elementType:'input',
                     elementConfig: {
                         type:'email',
                         placeholder:'Email'
                     },
+                    required:true,
                     value:'',
                 },
                 phone: {elementType:'input',
@@ -51,12 +67,14 @@ class Registration extends Component {
                         type:'text',
                         placeholder:'Телефон'
                     },
+                    required:true,
                     value:'',
                 },
                 birth_date:{elementType:'date',
                     elementConfig: {
                         type:'date',
                     },
+                    required:true,
                     label:'Дата народження:',
                     value:'',
                 },
@@ -158,6 +176,8 @@ class Registration extends Component {
                     },
                     value:'',
                 },
+
+                test:"test"
             }
         }
     }
@@ -203,7 +223,7 @@ class Registration extends Component {
         }
         console.log(transferPerson);
         axios.post(internUrl,transferPerson)
-            .then(<Redirect to="../"/>).catch(e => console.log(e));
+            .then(this.setState({redirect:true})).catch(e => console.log(e));
     };
 
     onChangeHandler = (event) => {
@@ -218,6 +238,10 @@ class Registration extends Component {
     };
 
     render() {
+        if(this.state.redirect) {
+            return(<Redirect to='../../'/>);
+        }
+
         return(
             <div className="registration">
                 <h5>Create your InterLink Account</h5>
@@ -231,7 +255,7 @@ class Registration extends Component {
                     <button onClick={this.previousMenu} value={this.state.menuId} type="button"
                             className={this.state.menuId > 1?"btn btn-outline-info":"invisible"}>Назад</button>
                     <button onClick={this.registrationHandler} value={this.state.menuId} type="button"
-                            className="btn btn-outline-info">Зареєструватися</button>
+                            className={this.state.isFormValid?"btn btn-outline-info":"invisible"}>Зареєструватися</button>
                     <button onClick={this.nextMenu} value={this.state.menuId} type="button"
                             className="btn btn-outline-info">Далі</button>
 

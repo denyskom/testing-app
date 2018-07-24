@@ -14,11 +14,11 @@ const educationBlock =(props) => {
                     <Input onChange={changeHandler} name="university" item={person.university}/>
                     <Input onChange={changeHandler} name="faculty" item={person.faculty}/>
                 </div>
-                <div className="labeled-input required">
+                <div className="labeled-input">
                      <label>{person.course.label}</label>
                      <Input onChange={changeHandler} name="course" item={person.course}/>
                 </div>
-                <div className="labeled-input">
+                <div className="labeled-input required">
                     <label>{person.english.label}</label>
                     <Input onChange={changeHandler} name="english" item={person.english}/>
                 </div>
