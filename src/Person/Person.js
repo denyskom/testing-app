@@ -5,6 +5,8 @@ import MainInfo from "./ContactInfo";
 import Info from "./Info";
 import AdditionalInfo from "./AdditionalInfo";
 import MiniActivity from "../Activity/MiniActivity";
+import {Redirect} from 'react-router-dom';
+
 
 const internUrl = "http://localhost:3004/people";
 
@@ -15,9 +17,7 @@ class Person extends Component {
         this.state = {
             isLoaded:false,
             person:{},
-            personId:this.props.match.params.id?this.props.match.params.id:"5b51887e190b6020ef001637",
-            // personId:"5b5716515b2b55408143a1a9",
-
+            personId:localStorage.getItem('id'),
             menuId:1
         }
     }
@@ -96,6 +96,10 @@ class Person extends Component {
 
 
     render() {
+        if(!this.state.personId){
+            return <Redirect to="../../index/login"/>
+        }
+
         if(!this.state.isLoaded) {
             return(<div className="loader"> </div>)
         }

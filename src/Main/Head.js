@@ -7,18 +7,18 @@ import LoginMarker from "../Login/LoginMarker";
 class Head extends Component{
 
     render () {
+        const menuClass = localStorage.getItem('id')?"header-item":"invisible";
+
         return (
             <nav className="custom-head">
                 <ul className="head-list">
                     <li className="header-item">
                         <img src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2017/03/logo.png" alt="InterLink"/>
                     </li>
-                    <li className="header-item"><Link className="head-link" to="../../home">Головна</Link></li>
-                    <li className="header-item"><a className="head-link" href="#">Moї активності</a></li>
-                    <li className="header-item"><a className="head-link" href="../../home/people">Moї дані</a></li>
-                    <li className="header-item-right"><LoginMarker isLogged={false}/></li>
-
-
+                    <li className={menuClass}><Link className="head-link" to="../../home">Головна</Link></li>
+                    <li className={menuClass}><a className="head-link" href="#">Moї активності</a></li>
+                    <li className={menuClass}><a className="head-link" href="../../home/people">Moї дані</a></li>
+                    <li className="header-item-right"><LoginMarker isLogged={!!localStorage.getItem('id')}/></li>
                 </ul>
 
 

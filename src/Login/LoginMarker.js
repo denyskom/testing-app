@@ -10,7 +10,7 @@ const loginMarker = (props) => {
         <div>
             <div className={props.isLogged?"marker-inner":"invisible"}>
                 <img src={props.image?props.image:defaultImage}/>
-                <a href='../../index/login' className="head-link">Вийти</a>
+                <a href='../../index/logout' className="head-link">Вийти</a>
             </div>
             <div className={!props.isLogged?"marker-inner":"invisible"}>
                 <Enter size={26} className="enter-glyph"/>

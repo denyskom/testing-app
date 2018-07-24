@@ -48,7 +48,7 @@ class Registration extends Component {
                 repeatPassword: {elementType:'input',
                     elementConfig: {
                         type:'password',
-                        placeholder:'Пароль'
+                        placeholder:'Підтвердити пароль'
                     },
                     required:true,
                     value:'',
@@ -227,7 +227,7 @@ class Registration extends Component {
     };
 
     onChangeHandler = (event) => {
-        let name = (event.target.name);
+        let name = event.target.name;
         let value = event.target.value;
         let field = this.state.person[event.target.name];
 
