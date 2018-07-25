@@ -24,7 +24,7 @@ class ButtonWithMassage extends Component{
 
         return(
             <div>
-                <button {...this.props} onClick={this.changeButtonSate}>{this.props.title}</button>
+                <button disabled={this.state.isOpened} {...this.props} onClick={this.changeButtonSate}>{this.props.title}</button>
                 <span className={underClass}>{this.props.massage}</span>
             </div>
         )

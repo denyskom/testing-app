@@ -28,10 +28,11 @@ const activityCard = (props) => {
                     <button className={props.isActive?"btn btn-info":invisibleElement}>Зареєструватися</button>:
                     <ButtonWithMassage className={props.isActive?"btn btn-info":invisibleElement} textClass="warning"
                                        title="Зареєструватися" massage={
-                                           <span>
+                                           <span style={{"margin-left":"4px"}}>
                                                Для реєстрації вам потрібно
                                                <a style={{color: "rgb(23, 162, 184)"}} href="../../index/login"> Увійти </a> або
-                                               <a style={{color: "rgb(23, 162, 184)"}} href="../../index/registration"> Зареєструватися </a>
+                                               <a style={{color: "rgb(23, 162, 184)"}} href="../../index/registration"> Створити </a>
+                                               новий аккаунт.
                                            </span>}/>}
             </div>
         </div>

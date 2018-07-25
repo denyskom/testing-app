@@ -39,8 +39,8 @@ class Login extends Component {
             });
     };
 
-    logInUser = (id) => {
-        localStorage.setItem('id', id);
+    logInUser = (name,id) => {
+        localStorage.setItem(name, id);
     };
 
 

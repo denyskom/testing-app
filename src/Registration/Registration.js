@@ -223,7 +223,7 @@ class Registration extends Component {
         }
         console.log(transferPerson);
         axios.post(internUrl,transferPerson)
-            .then(this.setState({redirect:true})).catch(e => console.log(e));
+            .then(() => this.setState({redirect:true})).catch(e => console.log(e));
     };
 
     onChangeHandler = (event) => {

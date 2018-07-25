@@ -21,7 +21,7 @@ class Head extends Component{
                     </li>
                     <li className={menuClass}><Link className="head-link" to="../../home">Головна</Link></li>
                     <li className={menuClass}><a className="head-link" href="#">Moї активності</a></li>
-                    <li className={menuClass}><a className="head-link" href="../../home/people">Moї дані</a></li>
+                    <li className={menuClass}><a className="head-link" href={`../../home/people`}>Moї дані</a></li>
                     <li className="header-item-right"><LoginMarker isLogged={this.checkUserAuth()}/></li>
                 </ul>
 
