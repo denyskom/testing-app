@@ -19,7 +19,7 @@
     margin-bottom: 20px;
 }
 
-a {
+.activity-card a {
     color: black;
 }
 
@@ -29,9 +29,20 @@ a:hover {
 }
 
 
-.activity-card a {
+.button-line {
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
 }
+
+.button-line button,a {
+    margin-right: 2px;
+}
+
+.button-line a {
+    color: white;
+}
+
 
 .list-container {
     display: flex;

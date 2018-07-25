@@ -40,7 +40,7 @@ class FullActivity extends Component {
         return (
             <div>
                 <h2>{activity.title}</h2>
-                <CollapsibleButton>{activity.description}</CollapsibleButton>
+                <CollapsibleButton title="Детальніше">{activity.description}</CollapsibleButton>
                 {this.renderTasks()}
             </div>
         );

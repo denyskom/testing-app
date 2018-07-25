@@ -29,9 +29,21 @@ class ActivityPresentationList extends Component {
             return <ActivityCard key={activity.id}
                                  activity={activity}
                                  activityURL={activityURL}
+                                 isActive={this.checkExpiration(activity)}
+                                 isAuth={this.checkIfUserAuth()}
+
             />
         })
     };
+
+    checkExpiration = (activity) => {
+        return  Date.parse(activity.registrationEndDate) > Date.now().valueOf();
+    };
+
+    checkIfUserAuth = () => {
+        return !!localStorage.getItem('id');
+    };
+
 
     render() {
         if(!this.state.isLoaded) {
