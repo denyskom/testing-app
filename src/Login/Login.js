@@ -34,9 +34,13 @@ class Login extends Component {
                     this.setState({isResponseValid: false});
                     return;
                 }
-            localStorage.setItem('id', res.data._id);
+            this.logInUser('id', res.data._id);
             this.setState({redirect:true})
             });
+    };
+
+    logInUser = (id) => {
+        localStorage.setItem('id', id);
     };
 
 
@@ -56,7 +60,7 @@ class Login extends Component {
                         <input value={state.password} onChange={this.inputHandler}
                                type="password" name="password" placeholder="Пароль"/>
                         <a href='./registration'>Зареєструватися?</a>
-                        <button  onClick={this.buttonHandler} className="btn btn-outline-info">Увійти</button>
+                        <button type="submit" onClick={this.buttonHandler} className="btn btn-outline-info">Увійти</button>
                     </div>
                 </form>
         );

@@ -6,8 +6,12 @@ import LoginMarker from "../Login/LoginMarker";
 
 class Head extends Component{
 
+    checkUserAuth = () => {
+        return !!localStorage.getItem('id');
+    };
+
     render () {
-        const menuClass = localStorage.getItem('id')?"header-item":"invisible";
+        const menuClass = this.checkUserAuth()?"header-item":"invisible";
 
         return (
             <nav className="custom-head">
@@ -18,7 +22,7 @@ class Head extends Component{
                     <li className={menuClass}><Link className="head-link" to="../../home">Головна</Link></li>
                     <li className={menuClass}><a className="head-link" href="#">Moї активності</a></li>
                     <li className={menuClass}><a className="head-link" href="../../home/people">Moї дані</a></li>
-                    <li className="header-item-right"><LoginMarker isLogged={!!localStorage.getItem('id')}/></li>
+                    <li className="header-item-right"><LoginMarker isLogged={this.checkUserAuth()}/></li>
                 </ul>
 
 

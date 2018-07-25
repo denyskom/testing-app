@@ -4,18 +4,21 @@ import './List.css'
 
 
 const activityCard = (props) => {
+    let activity = props.activity;
+    let URL = `${props.activityURL}/${activity._id}`;
+
     return (
         <div className="activity-card">
             <div className="activity-item">
-                <h2><a href={props.URL}>{props.title}</a></h2>
+                <h2><a href={URL}>{activity.title}</a></h2>
             </div>
             <div className="activity-item">
-                <p>{props.description}</p>
+                <p>{activity.description}</p>
             </div>
             <div className="activity-item">
-                <img src={props.imageURL}/>
+                <img src={activity.imageURL}/>
             </div>
-            <a href={props.URL} className="btn btn-info">Читати далі</a>
+            <a href={URL} className="btn btn-info">Читати далі</a>
         </div>
     )
 
