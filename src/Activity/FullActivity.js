@@ -3,9 +3,13 @@ import axios from 'axios';
 import Task from "../Tasks/Task";
 import './FullActivity.css'
 import CollapsibleButton from "../Collapsible/CollapsibleButton";
+import CommentsSection from "./Comments/CommentsSection";
+import ActivityCard from "./ActivityCard";
 
 const activityServerURL = "http://localhost:3004/activities";
 const stagesServerURL = "http://localhost:3004/stages";
+const participateURL = "http://localhost:3004/participate";
+const activityURL = "http://localhost:3000/home/activities";
 
 
 class FullActivity extends Component {
@@ -34,13 +38,68 @@ class FullActivity extends Component {
         }
     }
 
-    renderFullActivity = () => {
+    getCurrentUserId = () => {
+        return localStorage.getItem('id');
+    };
+
+    checkIfUserAuth = () => {
+        return !!localStorage.getItem('id');
+    };
+
+    checkExpiration = (activity) => {
+        return  Date.parse(activity.registrationEndDate) > Date.now().valueOf();
+    };
+
+
+    renderActivityForIntern = () => {
         let activity = this.state.activity;
+
+        return <div>
+                 <h2>{activity.title}</h2>
+                 <CollapsibleButton title="Детальніше">{activity.description}</CollapsibleButton>
+                 {this.renderTasks()}
+                  <div className="button-line">
+                    <button type="button" className="btn btn-outline-danger">Видалити</button>
+                  </div>
+                   <hr/>
+              </div>
+    };
+
+    registrationHandler = (activity) => {
+        axios.post(participateURL,{
+            ...activity,
+            personId: this.getCurrentUserId()
+        })
+    };
+
+    renderActivityForNonAuth = () => {
+        let activity = this.state.activity;
+
+
+        return <ActivityCard
+                      activity={activity}
+                      activityURL={activityURL}
+                      buttonNeeded={activity.persons.indexOf(this.getCurrentUserId()) === -1}
+                      readMore={false}
+                      isActive={this.checkExpiration(activity)}
+                      isAuth={this.checkIfUserAuth()}
+                      registrationHandler={() => this.registrationHandler(activity)}/>
+
+    };
+
+    renderCard = () => {
+        if(this.checkIfUserAuth()) {
+            return this.renderActivityForIntern();
+        }
+        return this.renderActivityForNonAuth();
+    };
+
+
+    renderFullActivity = () => {
         return (
             <div>
-                <h2>{activity.title}</h2>
-                <CollapsibleButton title="Детальніше">{activity.description}</CollapsibleButton>
-                {this.renderTasks()}
+                {this.renderCard()}
+                <CommentsSection label="Коментарі:" buttonName="Надіслати"/>
             </div>
         );
     };
@@ -66,3 +125,12 @@ class FullActivity extends Component {
 }
 
 export default FullActivity;
+
+
+
+// checkIfRegistredForActivity = () => {
+//     if(this.checkIfUserAuth) {
+//         return this.state.activity.persons.indexOf(this.getCurrentUserId()) === -1;
+//     }
+//     return false;
+// };

@@ -46,7 +46,7 @@ const activityCard = (props) => {
                 <img src={activity.imageURL}/>
             </div>
             <div className="button-line">
-                <a href={URL} className="btn btn-info">Читати далі</a>
+                <a href={URL} className={props.readMore?"btn btn-info":"invisible"}>Читати далі</a>
                 {renderButton()}
             </div>
         </div>

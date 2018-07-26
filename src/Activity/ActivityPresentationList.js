@@ -31,6 +31,7 @@ class ActivityPresentationList extends Component {
             return <ActivityCard key={activity.id}
                                  activity={activity}
                                  activityURL={activityURL}
+                                 readMore={true}
                                  buttonNeeded={activity.persons.indexOf(this.getCurrentUserId()) === -1}
                                  isActive={this.checkExpiration(activity)}
                                  isAuth={this.checkIfUserAuth()}

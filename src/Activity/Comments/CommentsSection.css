@@ -1,0 +1,21 @@
+.comments {
+    text-align: left;
+}
+
+.comments label {
+    font-weight:bold;
+}
+
+.comments textarea {
+    margin-bottom: 10px;
+}
+
+.comments button {
+    width: 100px;
+}
+
+.comments-button {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

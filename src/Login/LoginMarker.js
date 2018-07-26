@@ -9,7 +9,9 @@ const loginMarker = (props) => {
     return(
         <div>
             <div className={props.isLogged?"marker-inner":"invisible"}>
-                <img src={localStorage.getItem('img')}/>
+                <a href="../../home/people">
+                    <img src={localStorage.getItem('img')}/>
+                </a>
                 <a href='../../index/logout' className="head-link">Вийти</a>
             </div>
             <div className={!props.isLogged?"marker-inner":"invisible"}>
