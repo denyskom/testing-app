@@ -112,7 +112,9 @@ class Person extends Component {
                     <MainInfo name={`${person.firstName} ${person.lastName}`}
                               phone={person.phone}
                               email={person.email}
-                              birthDate={this.parseDate(person.birth_date)}/>
+                              birthDate={this.parseDate(person.birth_date)}
+                              photo={person.photo}
+                    />
                 </div>
                 <div id="right" className="custom-column">
                     <Info  method={this.changeMenu} id={this.state.menuId}>

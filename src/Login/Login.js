@@ -35,6 +35,7 @@ class Login extends Component {
                     return;
                 }
             this.logInUser('id', res.data._id);
+                localStorage.setItem('img', res.data.photo);
             this.setState({redirect:true})
             });
     };

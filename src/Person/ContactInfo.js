@@ -9,7 +9,7 @@ import Birth from '../../node_modules/react-icons/lib/fa/birthday-cake'
 const contactInfo = (props) => {
     return (
         <div className="card">
-            <img className="card-img-top" src="https://ppgzone-39u4nsxgmu93y.netdna-ssl.com/wp-content/uploads/batman-profile-pic.jpg"
+            <img className="card-img-top" src={props.photo}
                  alt="Profile photo"/>
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>
