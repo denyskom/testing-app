@@ -21,3 +21,9 @@
 hr {
     width: 96%;
 }
+
+.left-button {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

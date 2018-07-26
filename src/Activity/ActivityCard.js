@@ -28,7 +28,6 @@ const activityCard = (props) => {
                                                новий аккаунт.
                                            </span>}/>
         }
-
         return "";
         {/*<Checked size={40} className="checked-glyph"/>;*/}
     };

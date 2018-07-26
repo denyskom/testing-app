@@ -17,8 +17,8 @@ class CommentsSection extends Component{
                 <div className="form-group">
                     <label>{this.props.label}</label>
                     <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"/>
-                    <div className="comments-button">
-                        <button type="button" className="btn btn-outline-">{this.props.buttonName}</button>
+                    <div className="left-button">
+                        <button type="button" className="btn btn-outline">{this.props.buttonName}</button>
                     </div>
                 </div>
             </form>

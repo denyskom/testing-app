@@ -38,6 +38,14 @@ class FullActivity extends Component {
         }
     }
 
+    deleteActivity = () => {
+        axios.patch(participateURL,
+            {
+                activityId:this.state.activity._id,
+                userId: this.getCurrentUserId(),
+            })
+    };
+
     getCurrentUserId = () => {
         return localStorage.getItem('id');
     };
@@ -50,6 +58,13 @@ class FullActivity extends Component {
         return  Date.parse(activity.registrationEndDate) > Date.now().valueOf();
     };
 
+    checkIfRegistredForActivity = () => {
+    if(this.checkIfUserAuth) {
+        return this.state.activity.persons.indexOf(this.getCurrentUserId()) === -1;
+    }
+    return false;
+};
+
 
     renderActivityForIntern = () => {
         let activity = this.state.activity;
@@ -58,8 +73,8 @@ class FullActivity extends Component {
                  <h2>{activity.title}</h2>
                  <CollapsibleButton title="Детальніше">{activity.description}</CollapsibleButton>
                  {this.renderTasks()}
-                  <div className="button-line">
-                    <button type="button" className="btn btn-outline-danger">Видалити</button>
+                  <div className="left-button">
+                    <button type="button" onClick={this.deleteActivity} className="btn btn-outline-danger">Видалити</button>
                   </div>
                    <hr/>
               </div>
@@ -75,7 +90,6 @@ class FullActivity extends Component {
     renderActivityForNonAuth = () => {
         let activity = this.state.activity;
 
-
         return <ActivityCard
                       activity={activity}
                       activityURL={activityURL}
@@ -88,7 +102,7 @@ class FullActivity extends Component {
     };
 
     renderCard = () => {
-        if(this.checkIfUserAuth()) {
+        if(!this.checkIfRegistredForActivity()) {
             return this.renderActivityForIntern();
         }
         return this.renderActivityForNonAuth();
@@ -125,12 +139,3 @@ class FullActivity extends Component {
 }
 
 export default FullActivity;
-
-
-
-// checkIfRegistredForActivity = () => {
-//     if(this.checkIfUserAuth) {
-//         return this.state.activity.persons.indexOf(this.getCurrentUserId()) === -1;
-//     }
-//     return false;
-// };

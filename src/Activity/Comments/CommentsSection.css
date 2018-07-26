@@ -13,9 +13,3 @@
 .comments button {
     width: 100px;
 }
-
-.comments-button {
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
