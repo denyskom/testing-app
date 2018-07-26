@@ -50,11 +50,11 @@ class ActivityPresentationList extends Component {
 
     registrationHandler = (activity) => {
         let activityId = activity._id;
+        this.setState({isLoaded:false});
         axios.post(participateURL,{
             ...activity,
             personId: this.getCurrentUserId()
-        }).then(this.setState({activityId:activityId,
-            isLoaded:false},() => this.setState({redirect:true, isLoaded:true})));
+        }).then(() => this.setState({activityId:activityId},() => this.setState({redirect:true, isLoaded:true})));
     };
 
     checkExpiration = (activity) => {

@@ -20,7 +20,8 @@ class Registration extends Component {
         this.state = {
             menuId:1,
             redirect:false,
-            isFormValid:true,
+            isFormValid:false,
+            isLoaded:true,
             person: {
                 firstName: {elementType:'input',
                     elementConfig: {
@@ -206,7 +207,7 @@ class Registration extends Component {
         let id = event.target.value;
         if(id <= 2) {
             id++;
-            this.setState({menuId:id});
+            this.setState({menuId:id,isFormValid:id===3});
         }
     };
 
@@ -215,11 +216,12 @@ class Registration extends Component {
         let id = event.target.value;
         if(id > 0) {
             id--;
-            this.setState({menuId:id});
+            this.setState({menuId:id,isFormValid:id===3});
         }
     };
 
     registrationHandler = (event) => {
+        this.setState({isLoaded:false});
         let person=this.state.person;
         let transferPerson =  {};
         for(let key in person) {
@@ -257,7 +259,7 @@ class Registration extends Component {
                 {this.selectMenu()}
                 <div className="dots">
                     <span className="dot"> </span>
-                    <span className="dot"> </span>
+                    <span style={{order:this.state.menuId-2}} className="picked-dot"> </span>
                     <span className="dot"> </span>
                 </div>
                 <div className="buttons">

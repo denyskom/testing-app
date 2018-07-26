@@ -47,11 +47,12 @@ class FullActivity extends Component {
     }
 
     deleteActivity = () => {
+        this.setState({isLoaded:false});
         axios.patch(participateURL,
             {
                 activityId:this.state.activity._id,
                 userId: this.getCurrentUserId(),
-            }).then(() => {this.setState({isLoaded:false},() => this.componentDidMount())});
+            }).then(() =>  this.componentDidMount());
     };
 
     getCurrentUserId = () => {
@@ -90,10 +91,11 @@ class FullActivity extends Component {
 
     registrationHandler = (activity) => {
         let activityId = activity._id;
+        this.setState({isLoaded:false});
         axios.post(participateURL,{
             ...activity,
             personId: this.getCurrentUserId()
-        }).then(() => {this.setState({isLoaded:false},() => this.componentDidMount())});
+        }).then(() =>  this.componentDidMount());
     };
 
     renderActivityForNonAuth = () => {

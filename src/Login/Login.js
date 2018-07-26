@@ -29,7 +29,6 @@ class Login extends Component {
 
     buttonHandler = (event) => {
         event.preventDefault();
-        this.setState({isLoaded:false});
         axios.post(loginUrl, {email:this.state.email,password:this.state.password})
             .then((res) => {
                 if(res.data == null) {
@@ -49,10 +48,8 @@ class Login extends Component {
 
     render() {
         let state = this.state;
-        if(state.isLoaded) {
-            if(!state.isLoaded) {
-                return(<div className="loader"> </div>)
-            }
+        if(!state.isLoaded) {
+            return(<div className="loader"> </div>)
         }
         if(state.redirect) {
             return <Redirect to="../../"/>
@@ -63,12 +60,10 @@ class Login extends Component {
                     <div className="login-container">
                         <img src={require('../Logo/logo.png')} alt="InterLink"/>
                         <h3>Please sign in</h3>
-                        {this.state.isResponseValid?<div className="white">
-
-                            </div>:
+                        {this.state.isResponseValid?<div className="white"></div>:
                             <span className={"warning"}>Incorrect email or password</span>
                         }
-                        {/*<span className={this.state.isResponseValid?invisibleClass:"warning"}>Incorrect email or password</span>*/}
+
                         <input value={state.email} onChange={this.inputHandler} type="email" name="email" placeholder="Email"/>
                         <input value={state.password} onChange={this.inputHandler}
                                type="password" name="password" placeholder="Пароль"/>
