@@ -27,7 +27,7 @@ class CollapsibleButton extends Component{
         }
 
         return(
-            <div className="collapsible">
+            <div className={this.props.className?this.props.className:"collapsible"}>
                 <button onClick={this.changeButtonSate}>{this.props.title}</button>
                 <div className={underClass}>
                     {this.props.children}

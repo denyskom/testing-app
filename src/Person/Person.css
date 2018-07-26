@@ -80,6 +80,33 @@
     min-height: 600px;
 }
 
+.photo-button {
+    min-width: inherit;
+    width: 100%;
+    min-height: 35px;
+    padding: 10px 0;
+    outline: none;
+}
+
+.photo-button button {
+    cursor: pointer;
+    width: 100%;
+    min-height: inherit;
+    background-color: inherit;
+    color: #00aadb;
+    border: 1px solid #a6a6a6;
+    overflow: hidden;
+    display: block;
+}
+.photo-button input {
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+
+
+
+
 
 @media only screen and (max-width: 500px) {
     .splitter {
