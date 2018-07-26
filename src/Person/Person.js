@@ -8,7 +8,10 @@ import MiniActivity from "../Activity/MiniActivity";
 import {Redirect} from 'react-router-dom';
 
 
-const internUrl = "http://localhost:3004/people";
+// const internUrl = "http://localhost:3004/people";
+
+const routes = require('../Main/Routes');
+const internUrl = routes.serverPeople;
 
 
 class Person extends Component {
@@ -85,6 +88,11 @@ class Person extends Component {
 
     };
 
+
+    deleteUser = () => {
+
+};
+
     changeMenu = (event) => {
         let id = Number(event.target.value);
         this.setState({menuId:id});
@@ -97,7 +105,9 @@ class Person extends Component {
 
     render() {
         if(!this.state.personId){
-            return <Redirect to="../../index/login"/>
+            // return <Redirect to="../../index/login"/>
+            return <Redirect to={`../../${routes.appLoginRelative}`}/>
+
         }
 
         if(!this.state.isLoaded) {

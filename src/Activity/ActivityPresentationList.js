@@ -3,9 +3,14 @@ import axios from 'axios';
 import ActivityCard from "./ActivityCard";
 import './List.css'
 
-const activityServerURL = "http://localhost:3004/activities";
-const activityURL = "http://localhost:3000/home/activities";
-const participateURL = "http://localhost:3004/participate";
+
+// const activityServerURL = "http://localhost:3004/activities";
+// const activityURL = "http://localhost:3000/home/activities";
+// const participateURL = "http://localhost:3004/participate";
+const routes = require('../Main/Routes');
+const activityServerURL = routes.serverActivities;
+const activityURL = routes.appActivities;
+const participateURL = routes.serverParticipate;
 
 class ActivityPresentationList extends Component {
     constructor(props){

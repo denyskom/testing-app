@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import './Head.css'
 import LoginMarker from "../Login/LoginMarker";
 
+const routes = require('../Main/Routes');
+
 
 class Head extends Component{
 
@@ -21,9 +23,9 @@ class Head extends Component{
                             <img src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2017/03/logo.png" alt="InterLink"/>
                         </a>
                     </li>
-                    <li className={menuClass}><Link className="head-link" to="../../home">Головна</Link></li>
+                    <li className={menuClass}><Link className="head-link" to={`../../${routes.appHomeRelative}`}>Головна</Link></li>
                     {/*<li className={menuClass}><a className="head-link" href="#">Moї активності</a></li>*/}
-                    <li className={menuClass}><a className="head-link" href={`../../home/people`}>Moї дані</a></li>
+                    <li className={menuClass}><a className="head-link" href={`../../${routes.appPeopleRelative}`}>Moї дані</a></li>
                     <li className="header-item-right"><LoginMarker isLogged={this.checkUserAuth()}/></li>
                 </ul>
 

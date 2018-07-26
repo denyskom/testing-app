@@ -7,7 +7,11 @@ import MainBlock from "./MainBlock"
 import EducationBlock from "./EducationBlock";
 import AdditionalBlock from "./AdditionalBlock";
 
-const internUrl = "http://localhost:3004/people";
+// const internUrl = "http://localhost:3004/people";
+const routes = require('../Main/Routes');
+const internUrl = routes.serverPeople;
+
+
 const blocksCount = 3;
 
 class Registration extends Component {
@@ -223,7 +227,12 @@ class Registration extends Component {
         }
         console.log(transferPerson);
         axios.post(internUrl,transferPerson)
-            .then(() => this.setState({redirect:true})).catch(e => console.log(e));
+            .then((intern) => {
+                console.log(intern.id);
+                console.log(intern);
+                localStorage.setItem('id', intern._id);
+                this.setState({redirect:true})
+            }).catch(e => console.log(e));
     };
 
     onChangeHandler = (event) => {

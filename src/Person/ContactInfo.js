@@ -17,12 +17,13 @@ const contactInfo = (props) => {
                     <p>{props.phone}<Phone size={20} className="info-glyph"/></p>
                     <p>{props.email}<Mail size={20} className="info-glyph"/></p>
                     <p>{props.birthDate}<Birth size={20} className="info-glyph"/></p>
-                    <CollapsibleButton className="photo-button" title={"Change photo"}>
-                        <div className="photo-submit">
-                            <input placeholder="Photo URL" type="text"/>
-                            <button className="btn btn-info btn-sm">Ok</button>
-                        </div>
-                    </CollapsibleButton>
+                    <button style={{width:"100%"}} className="btn btn-info btn-sm" >Видалити</button>
+                    {/*<CollapsibleButton className="photo-button" title={"Change photo"}>*/}
+                        {/*<div className="photo-submit">*/}
+                            {/*<input placeholder="Photo URL" type="text"/>*/}
+                            {/*<button className="btn btn-info btn-sm">Ok</button>*/}
+                        {/*</div>*/}
+                    {/*</CollapsibleButton>*/}
                 </div>
         </div>
 

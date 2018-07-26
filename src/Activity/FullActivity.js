@@ -8,10 +8,16 @@ import ActivityCard from "./ActivityCard";
 import {Redirect} from 'react-router-dom';
 
 
-const activityServerURL = "http://localhost:3004/activities";
-const stagesServerURL = "http://localhost:3004/stages";
-const participateURL = "http://localhost:3004/participate";
-const activityURL = "http://localhost:3000/home/activities";
+// const activityServerURL = "http://localhost:3004/activities";
+// const stagesServerURL = "http://localhost:3004/stages";
+// const participateURL = "http://localhost:3004/participate";
+// const activityURL = "http://localhost:3000/home/activities";
+const routes = require('../Main/Routes');
+const activityServerURL = routes.serverActivities;
+const stagesServerURL = routes.serverStages;
+const participateURL = routes.serverParticipate;
+const activityURL = routes.appActivities;
+
 
 
 class FullActivity extends Component {
@@ -134,7 +140,7 @@ class FullActivity extends Component {
     render() {
 
         if(this.state.redirect) {
-            return <Redirect to={`../../home/activities/${this.state.activity._id}`}/>
+            return <Redirect to={`../../${routes.appActivitiesRelative}/${this.state.activity._id}`}/>
         }
 
         if(!this.state.isLoaded) {
