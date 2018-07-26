@@ -5,6 +5,8 @@ import './FullActivity.css'
 import CollapsibleButton from "../Collapsible/CollapsibleButton";
 import CommentsSection from "./Comments/CommentsSection";
 import ActivityCard from "./ActivityCard";
+import {Redirect} from 'react-router-dom';
+
 
 const activityServerURL = "http://localhost:3004/activities";
 const stagesServerURL = "http://localhost:3004/stages";
@@ -84,7 +86,7 @@ class FullActivity extends Component {
         axios.post(participateURL,{
             ...activity,
             personId: this.getCurrentUserId()
-        })
+        }).then(this.setState({redirect:true}));
     };
 
     renderActivityForNonAuth = () => {
@@ -130,6 +132,11 @@ class FullActivity extends Component {
 };
 
     render() {
+
+        if(this.state.redirect) {
+            return <Redirect to={`../../home/activities/${this.state.activity._id}`}/>
+        }
+
         if(!this.state.isLoaded) {
             return(<div className="loader"> </div>)
         }
