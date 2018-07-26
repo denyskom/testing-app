@@ -21,7 +21,8 @@ class Person extends Component {
             isLoaded:false,
             person:{},
             personId:localStorage.getItem('id'),
-            menuId:1
+            menuId:1,
+            redirect:false,
         }
     }
 
@@ -90,8 +91,17 @@ class Person extends Component {
 
 
     deleteUser = () => {
+        this.setState({isLoaded:false});
+        axios.delete(`${internUrl}/${this.getCurrentUserId()}`).then(() =>{
+            localStorage.removeItem('id');
+            localStorage.removeItem('img');
+            this.setState({redirect:true})
+        })
 
 };
+    getCurrentUserId = () => {
+        return localStorage.getItem('id');
+    };
 
     changeMenu = (event) => {
         let id = Number(event.target.value);
@@ -104,6 +114,9 @@ class Person extends Component {
 
 
     render() {
+        if(this.state.redirect){
+            return <Redirect to={`../../`}/>
+        }
         if(!this.state.personId){
             // return <Redirect to="../../index/login"/>
             return <Redirect to={`../../${routes.appLoginRelative}`}/>
@@ -124,6 +137,7 @@ class Person extends Component {
                               email={person.email}
                               birthDate={this.parseDate(person.birth_date)}
                               photo={person.photo}
+                              delete={this.deleteUser}
                     />
                 </div>
                 <div id="right" className="custom-column">

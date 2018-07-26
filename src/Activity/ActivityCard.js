@@ -1,12 +1,11 @@
 import React from 'react';
 import './List.css'
 import ButtonWithMassage from "../Collapsible/ButtonWithMassage";
-import Checked from '../../node_modules/react-icons/lib/md/check-circle'
+// import Checked from '../../node_modules/react-icons/lib/md/check-circle'
 
 
 const invisibleElement = "invisible";
-
-
+const routes = require('../Main/Routes');
 
 
 const activityCard = (props) => {
@@ -15,23 +14,23 @@ const activityCard = (props) => {
 
     let renderButton = () => {
         if (props.isAuth && props.buttonNeeded){
-            return <button onClick={props.registrationHandler} className={props.isActive?"btn btn-info":invisibleElement}>Зареєструватися</button>;
+            return <button onClick={props.registrationHandler}
+                           className={props.isActive?"btn btn-info":invisibleElement}>Зареєструватися</button>;
         }
 
         if(!props.isAuth) {
             return <ButtonWithMassage className={props.isActive?"btn btn-info":invisibleElement} textClass="warning"
                                       title="Зареєструватися" massage={
-                <span style={{"margin-left":"4px"}}>
+                <span style={{marginLeft:"4px"}}>
                                                Для реєстрації вам потрібно
-                                               <a style={{color: "rgb(23, 162, 184)"}} href="../../index/login"> Увійти </a> або
-                                               <a style={{color: "rgb(23, 162, 184)"}} href="../../index/registration"> Створити </a>
+                                               <a style={{color: "rgb(23, 162, 184)"}} href={`../../${routes.appLoginRelative}`}> Увійти </a> або
+                                               <a style={{color: "rgb(23, 162, 184)"}} href={`../../${routes.appRegistrationRelative}`}> Створити </a>
                                                новий аккаунт.
                                            </span>}/>
         }
         return "";
         {/*<Checked size={40} className="checked-glyph"/>;*/}
     };
-
 
     return (
         <div className="activity-card">

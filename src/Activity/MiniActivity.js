@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './MiniActivity.css'
 const activityURL = "http://localhost:3000/home/activities";
 

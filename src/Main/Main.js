@@ -1,5 +1,5 @@
 import Head from "./Head"
-import React, { Component } from 'react';
+import React from 'react';
 import './Main.css'
 import {Route} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';

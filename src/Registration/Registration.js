@@ -12,7 +12,7 @@ const routes = require('../Main/Routes');
 const internUrl = routes.serverPeople;
 
 
-const blocksCount = 3;
+// const blocksCount = 3;
 
 class Registration extends Component {
     constructor(props) {
@@ -227,12 +227,10 @@ class Registration extends Component {
         for(let key in person) {
             transferPerson = {...transferPerson, [key]:person[key].value}
         }
-        console.log(transferPerson);
         axios.post(internUrl,transferPerson)
-            .then((intern) => {
-                console.log(intern.id);
-                console.log(intern);
-                localStorage.setItem('id', intern._id);
+            .then((res) => {
+                localStorage.setItem('id', res.data._id);
+                localStorage.setItem('img', res.data.photo);
                 this.setState({redirect:true})
             }).catch(e => console.log(e));
     };

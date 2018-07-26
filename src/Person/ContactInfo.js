@@ -17,7 +17,7 @@ const contactInfo = (props) => {
                     <p>{props.phone}<Phone size={20} className="info-glyph"/></p>
                     <p>{props.email}<Mail size={20} className="info-glyph"/></p>
                     <p>{props.birthDate}<Birth size={20} className="info-glyph"/></p>
-                    <button style={{width:"100%"}} className="btn btn-info btn-sm" >Видалити</button>
+                    <button onClick={props.delete} style={{width:"100%"}} className="btn btn-info btn-sm" >Видалити</button>
                     {/*<CollapsibleButton className="photo-button" title={"Change photo"}>*/}
                         {/*<div className="photo-submit">*/}
                             {/*<input placeholder="Photo URL" type="text"/>*/}
