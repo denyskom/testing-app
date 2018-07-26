@@ -5,13 +5,15 @@ import './List.css'
 
 const activityServerURL = "http://localhost:3004/activities";
 const activityURL = "http://localhost:3000/home/activities";
+const participateURL = "http://localhost:3004/participate";
 
 class ActivityPresentationList extends Component {
     constructor(props){
         super(props);
         this.state= {
             activities:[],
-            isLoaded:false
+            isLoaded:false,
+            redirect:false
         }
     }
 
@@ -31,8 +33,16 @@ class ActivityPresentationList extends Component {
                                  activityURL={activityURL}
                                  isActive={this.checkExpiration(activity)}
                                  isAuth={this.checkIfUserAuth()}
+                                 registrationHandler={() => this.registrationHandler(activity)}
 
             />
+        })
+    };
+
+    registrationHandler = (activity) => {
+        axios.post(participateURL,{
+            ...activity,
+            personId: this.getCurrentUserId()
         })
     };
 
@@ -42,6 +52,10 @@ class ActivityPresentationList extends Component {
 
     checkIfUserAuth = () => {
         return !!localStorage.getItem('id');
+    };
+
+    getCurrentUserId = () => {
+        return localStorage.getItem('id');
     };
 
 

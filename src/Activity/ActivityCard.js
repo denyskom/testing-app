@@ -25,7 +25,7 @@ const activityCard = (props) => {
             <div className="button-line">
                 <a href={URL} className="btn btn-info">Читати далі</a>
                 {props.isAuth?
-                    <button className={props.isActive?"btn btn-info":invisibleElement}>Зареєструватися</button>:
+                    <button onClick={props.registrationHandler} className={props.isActive?"btn btn-info":invisibleElement}>Зареєструватися</button>:
                     <ButtonWithMassage className={props.isActive?"btn btn-info":invisibleElement} textClass="warning"
                                        title="Зареєструватися" massage={
                                            <span style={{"margin-left":"4px"}}>

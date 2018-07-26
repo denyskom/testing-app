@@ -22,7 +22,6 @@ class FullActivity extends Component {
 
     componentDidMount() {
         if(!this.state.isLoaded) {
-            console.log(`${activityServerURL}/${this.state.activityId}`);
             axios.get(`${activityServerURL}/${this.state.activityId}`).then(response => {
                 let activity = response.data;
                 this.setState({activity:activity,isActivityLoaded:true}
