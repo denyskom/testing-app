@@ -38,7 +38,7 @@ const activityCard = (props) => {
             <div className="activity-item">
                 <h2><a href={URL}>{activity.title}</a></h2>
             </div>
-            <div className="activity-item">
+            <div style={{textAlign: "left"}} className="activity-item">
                 <p>{activity.description}</p>
             </div>
             <div className="activity-item">

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ActivityCard from "./ActivityCard";
 import './List.css'
+import {Redirect} from 'react-router-dom';
+
 
 
 // const activityServerURL = "http://localhost:3004/activities";
@@ -47,10 +49,12 @@ class ActivityPresentationList extends Component {
     };
 
     registrationHandler = (activity) => {
+        let activityId = activity._id;
         axios.post(participateURL,{
             ...activity,
             personId: this.getCurrentUserId()
-        })
+        }).then(this.setState({activityId:activityId,
+            isLoaded:false},() => this.setState({redirect:true, isLoaded:true})));
     };
 
     checkExpiration = (activity) => {
@@ -67,6 +71,11 @@ class ActivityPresentationList extends Component {
 
 
     render() {
+
+        if(this.state.redirect) {
+            return <Redirect to={`../../${routes.appActivitiesRelative}/${this.state.activityId}`}/>
+        }
+
         if(!this.state.isLoaded) {
             return(<div className="loader"> </div>)
         }

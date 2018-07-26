@@ -51,7 +51,7 @@ class FullActivity extends Component {
             {
                 activityId:this.state.activity._id,
                 userId: this.getCurrentUserId(),
-            })
+            }).then(() => {this.setState({isLoaded:false},() => this.componentDidMount())});
     };
 
     getCurrentUserId = () => {
@@ -89,10 +89,11 @@ class FullActivity extends Component {
     };
 
     registrationHandler = (activity) => {
+        let activityId = activity._id;
         axios.post(participateURL,{
             ...activity,
             personId: this.getCurrentUserId()
-        }).then(this.setState({redirect:true}));
+        }).then(() => {this.setState({isLoaded:false},() => this.componentDidMount())});
     };
 
     renderActivityForNonAuth = () => {
