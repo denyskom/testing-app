@@ -57,3 +57,7 @@ a:hover {
     align-items: flex-start;
     text-align: left;
 }
+
+.checked-glyph {
+    color: rgba(124, 252, 0, 0.78);
+}

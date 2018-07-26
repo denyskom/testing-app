@@ -1,14 +1,37 @@
 import React from 'react';
 import './List.css'
 import ButtonWithMassage from "../Collapsible/ButtonWithMassage";
+import Checked from '../../node_modules/react-icons/lib/md/check-circle'
+
 
 const invisibleElement = "invisible";
+
 
 
 
 const activityCard = (props) => {
     let activity = props.activity;
     let URL = `${props.activityURL}/${activity._id}`;
+
+    let renderButton = () => {
+        if (props.isAuth && props.buttonNeeded){
+            return <button onClick={props.registrationHandler} className={props.isActive?"btn btn-info":invisibleElement}>Зареєструватися</button>;
+        }
+
+        if(!props.isAuth) {
+            return <ButtonWithMassage className={props.isActive?"btn btn-info":invisibleElement} textClass="warning"
+                                      title="Зареєструватися" massage={
+                <span style={{"margin-left":"4px"}}>
+                                               Для реєстрації вам потрібно
+                                               <a style={{color: "rgb(23, 162, 184)"}} href="../../index/login"> Увійти </a> або
+                                               <a style={{color: "rgb(23, 162, 184)"}} href="../../index/registration"> Створити </a>
+                                               новий аккаунт.
+                                           </span>}/>
+        }
+
+        return "";
+        {/*<Checked size={40} className="checked-glyph"/>;*/}
+    };
 
 
     return (
@@ -24,16 +47,7 @@ const activityCard = (props) => {
             </div>
             <div className="button-line">
                 <a href={URL} className="btn btn-info">Читати далі</a>
-                {props.isAuth?
-                    <button onClick={props.registrationHandler} className={props.isActive?"btn btn-info":invisibleElement}>Зареєструватися</button>:
-                    <ButtonWithMassage className={props.isActive?"btn btn-info":invisibleElement} textClass="warning"
-                                       title="Зареєструватися" massage={
-                                           <span style={{"margin-left":"4px"}}>
-                                               Для реєстрації вам потрібно
-                                               <a style={{color: "rgb(23, 162, 184)"}} href="../../index/login"> Увійти </a> або
-                                               <a style={{color: "rgb(23, 162, 184)"}} href="../../index/registration"> Створити </a>
-                                               новий аккаунт.
-                                           </span>}/>}
+                {renderButton()}
             </div>
         </div>
     )
