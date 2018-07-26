@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom';
 
 import axios from "axios/index";
 const loginUrl = 'http://localhost:3004/login';
-const invisibleClass = "invisible";
+const invisibleClass = "white";
 
 
 
@@ -15,7 +15,8 @@ class Login extends Component {
             email:'',
             password:'',
             redirect:false,
-            isResponseValid:true
+            isResponseValid:true,
+            isLoaded:true,
         }
     }
 
@@ -28,10 +29,11 @@ class Login extends Component {
 
     buttonHandler = (event) => {
         event.preventDefault();
+        this.setState({isLoaded:false});
         axios.post(loginUrl, {email:this.state.email,password:this.state.password})
             .then((res) => {
                 if(res.data == null) {
-                    this.setState({isResponseValid: false});
+                    this.setState({isResponseValid: false, isLoaded:true});
                     return;
                 }
             this.logInUser('id', res.data._id);
@@ -47,7 +49,12 @@ class Login extends Component {
 
     render() {
         let state = this.state;
-        if(this.state.redirect) {
+        if(state.isLoaded) {
+            if(!state.isLoaded) {
+                return(<div className="loader"> </div>)
+            }
+        }
+        if(state.redirect) {
             return <Redirect to="../../"/>
         }
 
@@ -56,7 +63,12 @@ class Login extends Component {
                     <div className="login-container">
                         <img src={require('../Logo/logo.png')} alt="InterLink"/>
                         <h3>Please sign in</h3>
-                        <span className={this.state.isResponseValid?invisibleClass:"warning"}>Incorrect email or password</span>
+                        {this.state.isResponseValid?<div className="white">
+
+                            </div>:
+                            <span className={"warning"}>Incorrect email or password</span>
+                        }
+                        {/*<span className={this.state.isResponseValid?invisibleClass:"warning"}>Incorrect email or password</span>*/}
                         <input value={state.email} onChange={this.inputHandler} type="email" name="email" placeholder="Email"/>
                         <input value={state.password} onChange={this.inputHandler}
                                type="password" name="password" placeholder="Пароль"/>
