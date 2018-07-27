@@ -27,9 +27,9 @@ class Person extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${internUrl}/${this.state.personId}`).then(response => {
-            this.setState({person:response.data,isLoaded:true})
-        })
+        console.log(`${internUrl}/${this.state.personId}`);
+        axios.get(`${internUrl}/${this.state.personId}`).then(response => {console.log(response);this.setState({person:response.data,isLoaded:true})}
+            )
     };
 
     renderEducationInfo = () => {

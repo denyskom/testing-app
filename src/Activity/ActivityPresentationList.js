@@ -28,7 +28,7 @@ class ActivityPresentationList extends Component {
     componentDidMount() {
         axios.get(activityServerURL).then(response => {
             let activities = response.data;
-            activities.reverse();
+            activities;
             this.setState({activities:activities,isLoaded:true})
         })
     }

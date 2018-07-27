@@ -36,10 +36,12 @@
       "basics":"Java",
       "literature":"Clean code"
     }
-  ],
+  ]
 
- 
 
-"activities":{{"imageURL":"https://blog.interlink-ua.com/wp-content/uploads/sites/2/2018/02/DSC_0084.jpg","isActive":true,"persons":["5b572ddff994684c15c774c8","5b59748f577096215f841c20"],"_id":"5b518534b7081420082ec14f","title":"9th season of InterLink inCamp","description":"Оголошуємо набір для студентів на 9 сезон інтернатури inCamp! На тебе очікує захоплююча подорож у розробку web-додатків. За 3 місяці ти отримаєш досвід frontend та backend розробки, командної роботи, застосуєш принципи Agile на практиці та прокачаєш свої soft skills. Глибоке занурення у технічні Наш ментор вже підготував для тебе ефективну та цікаву програму і чекає на заявки ;). Твоя кар’єра ближче, ніж ти очікуєш. Реєстрація триває до 27 травня!","registrationEndDate":"2018-05-27T20:59:12.918Z","createdAt":"2018-07-20T06:46:12.918Z","tasks":[],"__v":0},{"imageURL":"https://blog.interlink-ua.com/wp-content/uploads/sites/2/2018/02/DSC_0084.jpg","isActive":true,"persons":[],"_id":"5b5185acb7081420082ec151","title":"10th season of InterLink inCamp","description":"Оголошуємо набір для студентів на 10 сезон інтернатури inCamp! На тебе очікує захоплююча подорож у розробку web-додатків. За 3 місяці ти отримаєш досвід frontend та backend розробки, командної роботи, застосуєш принципи Agile на практиці та прокачаєш свої soft skills. Глибоке занурення у технічні Наш ментор вже підготував для тебе ефективну та цікаву програму і чекає на заявки ;). Твоя кар’єра ближче, ніж ти очікуєш. Реєстрація триває до 31 липня!","registrationEndDate":"2018-07-31T20:59:12.684Z","createdAt":"2018-07-20T06:48:12.684Z","tasks":[{"id":"5b51c4e069f8b84ceee3fabf","title":"First Stage","isActive":true},{"id":"5b51ceba69f8b84ceee3fac5","title":"Second Stage","isActive":false}],"__v":0}}
 
-}
+{"_id":"5b5185acb7081420082ec151",
+  "imageURL":"https://blog.interlink-ua.com/wp-content/uploads/sites/2/2018/02/DSC_0084.jpg",
+  "isActive":true,
+  "title":"10th season of InterLink inCamp",
+  "description":"Оголошуємо набір для студентів на 10 сезон інтернатури inCamp! На тебе очікує захоплююча подорож у розробку web-додатків. За 3 місяці ти отримаєш досвід frontend та backend розробки, командної роботи, застосуєш принципи Agile на практиці та прокачаєш свої soft skills. Глибоке занурення у технічні Наш ментор вже підготував для тебе ефективну та цікаву програму і чекає на заявки ;). Твоя кар’єра ближче, ніж ти очікуєш. Реєстрація триває до 31 липня!","registrationEndDate":"2018-07-31T20:59:12.684Z","createdAt":"2018-07-20T06:48:12.684Z","persons":["5b572ddff994684c15c774c8"],"tasks":[{"id":"5b51c4e069f8b84ceee3fabf","title":"First Stage","isActive":true},{"id":"5b51ceba69f8b84ceee3fac5","title":"Second Stage","isActive":false}],"__v":0}
