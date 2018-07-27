@@ -1,6 +1,9 @@
 import React from 'react'
 import './MiniActivity.css'
-const activityURL = "http://localhost:3000/home/activities";
+// const activityURL = "http://localhost:3000/home/activities";
+const routes = require('../Main/Routes');
+const activityURL = routes.appActivities;
+
 
 const miniActivity = (props) => {
     let activity = props.activity;

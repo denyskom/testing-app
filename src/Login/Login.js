@@ -3,7 +3,11 @@ import './Login.css'
 import {Redirect} from 'react-router-dom';
 
 import axios from "axios/index";
-const loginUrl = 'http://localhost:3004/login';
+// const loginUrl = 'http://localhost:3004/login';
+const routes = require('../Main/Routes');
+const loginUrl = routes.serverLogin;
+
+
 const invisibleClass = "white";
 
 

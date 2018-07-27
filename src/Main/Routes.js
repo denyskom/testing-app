@@ -1,5 +1,5 @@
-const appHost = "http://localhost:3000";
-const serverHost = "http://localhost:3004";
+const appHost = "";
+const serverHost = "/api";
 
 const routes = {
     serverPeople:`${serverHost}/people`,
