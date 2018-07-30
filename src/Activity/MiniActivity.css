@@ -13,3 +13,9 @@
 .min-activity a h4 {
     margin-bottom: 0;
 }
+
+@media only screen and (max-width: 845px) {
+    .min-activity.card {
+        max-height: inherit;
+    }
+}
