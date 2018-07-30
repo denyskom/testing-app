@@ -9,7 +9,9 @@ import AdditionalBlock from "./AdditionalBlock";
 
 // const internUrl = "http://localhost:3004/people";
 const routes = require('../Main/Routes');
-const internUrl = routes.serverPeople;
+// const internUrl = routes.serverPeople;
+const internUrl = routes.serverRegistration;
+
 
 
 // const blocksCount = 3;

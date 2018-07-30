@@ -5,6 +5,7 @@ import {Redirect} from 'react-router-dom';
 import axios from "axios/index";
 // const loginUrl = 'http://localhost:3004/login';
 const routes = require('../Main/Routes');
+const jwtDecode = require('jwt-decode');
 const loginUrl = routes.serverLogin;
 
 
@@ -39,8 +40,10 @@ class Login extends Component {
                     this.setState({isResponseValid: false, isLoaded:true});
                     return;
                 }
-            this.logInUser('id', res.data._id);
-                localStorage.setItem('img', res.data.photo);
+
+                const user = jwtDecode(res.data.token);
+            this.logInUser('id', user.id);
+                localStorage.setItem('img', user.photo);
             this.setState({redirect:true})
             });
     };

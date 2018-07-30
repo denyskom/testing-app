@@ -7,6 +7,7 @@ const routes = {
     serverActivities:`${serverHost}/activities`,
     serverParticipate:`${serverHost}/participate`,
     serverLogin: `${serverHost}/login`,
+    serverRegistration: `${serverHost}/register`,
     serverStages: `${serverHost}/stages`,
 
     appPeopleRelative:'home/people',
