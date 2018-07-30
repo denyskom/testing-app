@@ -33,7 +33,7 @@ const activityCard = (props) => {
     };
 
     return (
-        <div className="activity-card">
+        <div key={props.key} className="activity-card">
             <div className="activity-item">
                 <h2><a href={URL}>{activity.title}</a></h2>
             </div>

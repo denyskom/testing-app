@@ -10,8 +10,8 @@ class ButtonWithMassage extends Component{
     }
 
     changeButtonSate = () => {
-        let current = this.state.isOpened;
-        this.setState({isOpened:!current});
+        this.setState((prevState, props) => {
+            return {isOpened:!prevState.isOpened}});
     };
 
 
