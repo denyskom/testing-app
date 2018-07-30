@@ -42,7 +42,7 @@
     justify-content: space-between;
     max-width: 850px;
     width: 100%;
-    min-height: 602px;
+    min-height: 635px;
     border-radius: 10px;
     border: 1px solid rgba(211, 211, 211, 0.4);
     box-shadow: rgba(229, 229, 229, 0.6)
@@ -161,6 +161,11 @@
 
 .invisible {
     display: none;
+}
+
+.warn-div {
+    margin-top: auto;
+    text-align: center;
 }
 
 .required input{

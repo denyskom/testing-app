@@ -22,6 +22,7 @@ class Registration extends Component {
             redirect:false,
             isFormValid:false,
             isLoaded:true,
+            isResponseValid:true,
             person: {
                 firstName: {elementType:'input',
                     elementConfig: {
@@ -232,7 +233,9 @@ class Registration extends Component {
                 localStorage.setItem('id', res.data._id);
                 localStorage.setItem('img', res.data.photo);
                 this.setState({redirect:true})
-            }).catch(e => console.log(e));
+            }).catch(e => {
+            this.setState({isResponseValid: false, isLoaded:true});
+            console.log(e)});
     };
 
     onChangeHandler = (event) => {
@@ -255,6 +258,12 @@ class Registration extends Component {
             <div className="registration">
                 <h5>Create your InterLink Account</h5>
                 {this.selectMenu()}
+                <div className="warn-div">
+                    {this.state.isResponseValid?<div className="white"></div>:
+                        <span className={"warning"}> Червоні поля не повинні бути пустими</span>
+                    }
+                </div>
+
                 <div className="dots">
                     <span className="dot"> </span>
                     <span style={{order:this.state.menuId-2}} className="picked-dot"> </span>
