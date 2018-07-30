@@ -29,6 +29,19 @@ class Head extends Component{
         </Wrapper>
     };
 
+    renderButtonIfNeeded = () => {
+        if(this.checkUserAuth()) {
+            return(  <div className="header-item-right">
+                <button onClick={this.menuHandler} ><Menu size={26}/></button>
+            </div>)
+
+        }
+
+        return <li className="header-item-right"><LoginMarker isLogged={this.checkUserAuth()}/></li>
+
+
+    };
+
     menuHandler = () => {
         this.setState((prevState, props) => {
             return {isOpened:!prevState.isOpened}});
@@ -48,9 +61,7 @@ class Head extends Component{
                         <Media  query="(max-width: 598px)">
                             {matches =>
                                 matches ?(
-                                    <div className="header-item-right">
-                                        <button onClick={this.menuHandler} ><Menu size={26}/></button>
-                                    </div>
+                                   this.renderButtonIfNeeded()
 
                                 ): (
                                     <div className="head-list">
