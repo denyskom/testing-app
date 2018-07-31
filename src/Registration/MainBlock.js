@@ -3,7 +3,7 @@ import Input from "./Input/Input";
 
 
 const mainBlock =(props) => {
-    let requiredInputClass = "input-row required";
+    let requiredInputClass = "input-row";
     let person = props.person;
     let changeHandler = props.changeHandler;
 
@@ -11,7 +11,9 @@ const mainBlock =(props) => {
       <form className="registration-block">
           <div className="registration-forms">
               <div className={requiredInputClass}>
+                  <label>*</label>
                   <Input onChange={changeHandler} name="firstName" item={person.firstName}/>
+                  <label>*</label>
                   <Input  onChange={changeHandler} name="lastName" item={person.lastName}/>
               </div>
               <div className={requiredInputClass}>
@@ -22,7 +24,7 @@ const mainBlock =(props) => {
                   <Input onChange={changeHandler} name="password" item={person.password}/>
                   <Input onChange={changeHandler} name="passwordConfirm" item={person.passwordConfirm}/>
               </div>
-              <div className="labeled-input required">
+              <div className="labeled-input">
                   <label>{person.birth_date.label}</label>
                   <Input onChange={changeHandler} name="birth_date" item={person.birth_date}/>
               </div>

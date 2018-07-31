@@ -119,6 +119,11 @@
     width: 45%;
 }
 
+.input-row label {
+    color:rgba(255, 0, 0, 0.5);
+    margin-top: auto;
+}
+
 .registration-forms input:focus{
     outline: none;
     border-bottom: 2px solid #00aadb;

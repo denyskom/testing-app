@@ -237,7 +237,7 @@ class Registration extends Component {
                 this.setState({redirect:true})
             }).catch(e => {
             this.setState({isResponseValid: false, isLoaded:true});
-            console.log(e)});
+            console.log(e.response.data)});
     };
 
     onChangeHandler = (event) => {
