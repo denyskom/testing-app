@@ -53,7 +53,7 @@ class Registration extends Component {
                     value:'',
                 },
 
-                repeatPassword: {elementType:'input',
+                passwordConfirm: {elementType:'input',
                     elementConfig: {
                         type:'password',
                         placeholder:'Підтвердити пароль'

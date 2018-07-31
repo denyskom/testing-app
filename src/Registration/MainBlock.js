@@ -20,7 +20,7 @@ const mainBlock =(props) => {
               </div>
               <div className={requiredInputClass}>
                   <Input onChange={changeHandler} name="password" item={person.password}/>
-                  <Input onChange={changeHandler} name="repeatPassword" item={person.repeatPassword}/>
+                  <Input onChange={changeHandler} name="passwordConfirm" item={person.passwordConfirm}/>
               </div>
               <div className="labeled-input required">
                   <label>{person.birth_date.label}</label>

@@ -9,8 +9,6 @@ const jwtDecode = require('jwt-decode');
 const loginUrl = routes.serverLogin;
 
 
-const invisibleClass = "white";
-
 
 
 class Login extends Component {
@@ -22,6 +20,7 @@ class Login extends Component {
             redirect:false,
             isResponseValid:true,
             isLoaded:true,
+            errorMassage: 'Incorrect email or password'
         }
     }
 
@@ -35,17 +34,20 @@ class Login extends Component {
     buttonHandler = (event) => {
         event.preventDefault();
         axios.post(loginUrl, {email:this.state.email,password:this.state.password})
-            .then((res) => {
-                if(res.data == null) {
-                    this.setState({isResponseValid: false, isLoaded:true});
-                    return;
-                }
-
+            .then(res => {
                 const user = jwtDecode(res.data.token);
-            this.logInUser('id', user.id);
+                this.logInUser('id', user.id);
                 localStorage.setItem('img', user.photo);
-            this.setState({redirect:true})
-            });
+                this.setState({redirect:true})
+            }).catch(e => {
+                let errors = e.response.data;
+                console.log(errors);
+                let error ='';
+                for (let key in errors) {
+                    error = `${error}${errors[key]}. `
+                }
+                this.setState({isResponseValid: false, isLoaded:true, errorMassage:error});
+        });
     };
 
     logInUser = (name,id) => {
@@ -68,7 +70,7 @@ class Login extends Component {
                         <img src={require('../Logo/logo.png')} alt="InterLink"/>
                         <h3>Please sign in</h3>
                         {this.state.isResponseValid?<div className="white"></div>:
-                            <span className={"warning"}>Incorrect email or password</span>
+                            <span className={"warning"}>{this.state.errorMassage}</span>
                         }
 
                         <input value={state.email} onChange={this.inputHandler} type="email" name="email" placeholder="Email"/>
