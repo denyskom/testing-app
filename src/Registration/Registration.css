@@ -102,6 +102,7 @@
     flex-direction: row;
     justify-content: space-between;
     height: fit-content;
+    align-items: right;
 }
 
 .registration-forms  input, select{
@@ -119,8 +120,16 @@
     width: 45%;
 }
 
-.input-row label {
+
+.input-row span {
     color:rgba(255, 0, 0, 0.5);
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.labeled-input span {
+    color:rgba(255, 0, 0, 0.5);
+    margin-bottom: auto;
     margin-top: auto;
 }
 
@@ -200,9 +209,21 @@
     .registration {
         padding: 20px 20px;
     }
+
     .input-row {
         flex-flow: column wrap;
     }
+
+    input.labeled {
+        margin-top: 0;
+    }
+
+    .input-row span{
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+
     .registration-forms input {
         width: 90%;
         align-self: center;
@@ -219,6 +240,14 @@
 
     .labeled-input {
         flex-direction: column;
+    }
+
+    .labeled-input span{
+        display: none;
+    }
+
+    .labeled-input label{
+        margin-top: 20px;
     }
 }
 

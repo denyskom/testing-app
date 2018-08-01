@@ -11,20 +11,25 @@ const mainBlock =(props) => {
       <form className="registration-block">
           <div className="registration-forms">
               <div className={requiredInputClass}>
-                  <label>*</label>
-                  <Input onChange={changeHandler} name="firstName" item={person.firstName}/>
-                  <label>*</label>
-                  <Input  onChange={changeHandler} name="lastName" item={person.lastName}/>
+                  <span>*</span>
+                  <Input className="labeled" onChange={changeHandler} name="firstName" item={person.firstName}/>
+                  <span>*</span>
+                  <Input className="labeled" onChange={changeHandler} name="lastName" item={person.lastName}/>
               </div>
               <div className={requiredInputClass}>
-                  <Input onChange={changeHandler} name="email" item={person.email}/>
-                  <Input onChange={changeHandler} name="phone" item={person.phone}/>
+                  <span>*</span>
+                  <Input className="labeled" onChange={changeHandler} name="email" item={person.email}/>
+                  <span>*</span>
+                  <Input className="labeled" onChange={changeHandler} name="phone" item={person.phone}/>
               </div>
               <div className={requiredInputClass}>
-                  <Input onChange={changeHandler} name="password" item={person.password}/>
-                  <Input onChange={changeHandler} name="passwordConfirm" item={person.passwordConfirm}/>
+                  <span>*</span>
+                  <Input className="labeled" onChange={changeHandler} name="password" item={person.password}/>
+                  <span>*</span>
+                  <Input className="labeled" onChange={changeHandler} name="passwordConfirm" item={person.passwordConfirm}/>
               </div>
               <div className="labeled-input">
+                  <span>*</span>
                   <label>{person.birth_date.label}</label>
                   <Input onChange={changeHandler} name="birth_date" item={person.birth_date}/>
               </div>
