@@ -5,6 +5,7 @@ const routes = {
     serverPeople:`${serverHost}/people`,
     serverTasks:`${serverHost}/tasks`,
     serverActivities:`${serverHost}/activities`,
+    serverActivity:`${serverHost}/activity`,
     serverParticipate:`${serverHost}/participate`,
     serverLogin: `${serverHost}/login`,
     serverRegistration: `${serverHost}/register`,
@@ -21,7 +22,6 @@ const routes = {
     appLogoutRelative:`index/logout`,
     appLoginRelative:`index/login`,
     appRegistrationRelative:`index/registration`,
-
 
 };
 

@@ -15,7 +15,7 @@ import {Redirect} from 'react-router-dom';
 const routes = require('../Main/Routes');
 const activityServerURL = routes.serverActivities;
 const stagesServerURL = routes.serverStages;
-const participateURL = routes.serverParticipate;
+const serverActivityURL = routes.serverActivity;
 const activityURL = routes.appActivities;
 
 
@@ -33,6 +33,7 @@ class FullActivity extends Component {
     }
 
     componentDidMount() {
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         if(!this.state.isLoaded) {
             axios.get(`${activityServerURL}/${this.state.activityId}`).then(response => {
                 let activity = response.data;
@@ -47,12 +48,9 @@ class FullActivity extends Component {
     }
 
     deleteActivity = () => {
+        let activityId = this.state.activityId;
         this.setState({isLoaded:false});
-        axios.patch(participateURL,
-            {
-                activityId:this.state.activity._id,
-                userId: this.getCurrentUserId(),
-            }).then(() =>  this.componentDidMount());
+        axios.delete(`${serverActivityURL}/${activityId}/delete/${this.getCurrentUserId()}`).then(() =>  this.componentDidMount());
     };
 
     getCurrentUserId = () => {
@@ -92,7 +90,7 @@ class FullActivity extends Component {
     registrationHandler = (activity) => {
         let activityId = activity._id;
         this.setState({isLoaded:false});
-        axios.post(participateURL,{
+        axios.post(`${serverActivityURL}/${activityId}/add/${this.getCurrentUserId()}`,{
             ...activity,
             personId: this.getCurrentUserId()
         }).then(() =>  this.componentDidMount());

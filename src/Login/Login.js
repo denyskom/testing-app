@@ -36,6 +36,9 @@ class Login extends Component {
         axios.post(loginUrl, {email:this.state.email,password:this.state.password})
             .then(res => {
                 const user = jwtDecode(res.data.token);
+                axios.defaults.headers.common['Authorization'] = res.data.token;
+                localStorage.setItem('jwtToken', res.data.token);
+                console.log(res.data.token);
                 this.logInUser('id', user.id);
                 localStorage.setItem('img', user.photo);
                 this.setState({redirect:true})

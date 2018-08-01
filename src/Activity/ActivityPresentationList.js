@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import axios  from '../config/axios';
+import axios  from 'axios';
 import ActivityCard from "./ActivityCard";
 import './List.css'
 import {Redirect} from 'react-router-dom';
 
 
-
-// const activityServerURL = "http://localhost:3004/activities";
-// const activityURL = "http://localhost:3000/home/activities";
-// const participateURL = "http://localhost:3004/participate";
 const routes = require('../Main/Routes');
 const activityServerURL = routes.serverActivities;
 const activityURL = routes.appActivities;
-const participateURL = routes.serverParticipate;
+const serverActivityURL = routes.serverActivity;
 
 class ActivityPresentationList extends Component {
     constructor(props){
@@ -26,6 +22,7 @@ class ActivityPresentationList extends Component {
 
 
     componentDidMount() {
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         axios.get(activityServerURL).then(response => {
             let activities = response.data;
             this.setState({activities:activities,isLoaded:true})
@@ -50,7 +47,7 @@ class ActivityPresentationList extends Component {
     registrationHandler = (activity) => {
         let activityId = activity._id;
         this.setState({isLoaded:false});
-        axios.post(participateURL,{
+        axios.post(`${serverActivityURL}/${activityId}/add/${this.getCurrentUserId()}`,{
             ...activity,
             personId: this.getCurrentUserId()
         }).then(() => this.setState({activityId:activityId},() => this.setState({redirect:true, isLoaded:true})));

@@ -232,6 +232,8 @@ class Registration extends Component {
         }
         axios.post(internUrl,transferPerson)
             .then((res) => {
+                axios.defaults.headers.common['Authorization'] = res.data.token;
+                localStorage.setItem('jwtToken', res.data.token);
                 localStorage.setItem('id', res.data._id);
                 localStorage.setItem('img', res.data.photo);
                 this.setState({redirect:true})

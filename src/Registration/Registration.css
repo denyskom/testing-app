@@ -238,6 +238,11 @@
         width: 100%;
     }
 
+    .buttons button:focus {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
     .labeled-input {
         flex-direction: column;
     }
