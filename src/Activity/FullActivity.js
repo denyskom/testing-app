@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios  from '../config/axios';
 import Task from "../Tasks/Task";
 import './FullActivity.css'
 import CollapsibleButton from "../Collapsible/CollapsibleButton";
@@ -29,7 +29,6 @@ class FullActivity extends Component {
     }
 
     componentDidMount() {
-        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         if(!this.state.isLoaded) {
             axios.get(`${activityServerURL}/${this.state.activityId}`).then(response => {
                 let activity = response.data;

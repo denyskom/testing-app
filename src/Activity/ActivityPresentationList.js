@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios  from 'axios';
+import axios  from '../config/axios';
 import ActivityCard from "./ActivityCard";
 import './List.css'
 import {Redirect} from 'react-router-dom';
@@ -22,7 +22,6 @@ class ActivityPresentationList extends Component {
 
 
     componentDidMount() {
-        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         axios.get(activityServerURL).then(response => {
             let activities = response.data;
             this.setState({activities:activities,isLoaded:true})
