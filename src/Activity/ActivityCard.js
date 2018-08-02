@@ -1,6 +1,9 @@
 import React from 'react';
 import './List.css'
 import ButtonWithMassage from "../Collapsible/ButtonWithMassage";
+import { Link } from 'react-router-dom'
+
+
 // import Checked from '../../node_modules/react-icons/lib/md/check-circle'
 
 
@@ -35,7 +38,7 @@ const activityCard = (props) => {
     return (
         <div key={props.key} className="activity-card">
             <div className="activity-item">
-                <h2><a href={URL}>{activity.title}</a></h2>
+                <h2><Link to={URL}>{activity.title}</Link></h2>
             </div>
             <div style={{textAlign: "left"}} className="activity-item">
                 <p>{activity.description}</p>
@@ -44,7 +47,7 @@ const activityCard = (props) => {
                 <img src={activity.imageURL}/>
             </div>
             <div className="button-line">
-                <a href={URL} className={props.readMore?"btn btn-info":"invisible"}>Читати далі</a>
+                <Link to={URL} className={props.readMore?"btn btn-info":"invisible"}>Читати далі</Link>
                 {renderButton()}
             </div>
         </div>
