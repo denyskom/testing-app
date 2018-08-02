@@ -195,14 +195,14 @@ class Registration extends Component {
     componentWillReceiveProps(nextProps) {
         if(nextProps.errors) {
             console.log(nextProps.errors);
-            this.setState({isResponseValid:false})
+            this.setState({isResponseValid:false, menuId:1})
         }
     }
 
     selectMenu = () => {
         let menuId = this.state.menuId;
         if(menuId === 1) {
-            return (<MainBlock person={this.state.person} changeHandler={this.onChangeHandler}/>);
+            return (<MainBlock errors={this.props.errors} person={this.state.person} changeHandler={this.onChangeHandler}/>);
         }
 
         if(menuId === 2) {
@@ -273,11 +273,11 @@ class Registration extends Component {
             <div className="registration">
                 <h5>Create your InterLink Account</h5>
                 {this.selectMenu()}
-                <div className="warn-div">
-                    {this.state.isResponseValid?<div className="white"></div>:
-                        <span className={"warning"}> Червоні поля не повинні бути пустими</span>
-                    }
-                </div>
+                {/*<div className="warn-div">*/}
+                    {/*{this.state.isResponseValid?<div className="white"></div>:*/}
+                        {/*<span className={"warning"}> Червоні поля не повинні бути пустими</span>*/}
+                    {/*}*/}
+                {/*</div>*/}
 
                 <div className="dots">
                     <span className="dot"> </span>
