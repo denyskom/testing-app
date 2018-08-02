@@ -8,10 +8,6 @@ import ActivityCard from "./ActivityCard";
 import {Redirect} from 'react-router-dom';
 
 
-// const activityServerURL = "http://localhost:3004/activities";
-// const stagesServerURL = "http://localhost:3004/stages";
-// const participateURL = "http://localhost:3004/participate";
-// const activityURL = "http://localhost:3000/home/activities";
 const routes = require('../Main/Routes');
 const activityServerURL = routes.serverActivities;
 const stagesServerURL = routes.serverStages;
@@ -50,7 +46,7 @@ class FullActivity extends Component {
     deleteActivity = () => {
         let activityId = this.state.activityId;
         this.setState({isLoaded:false});
-        axios.delete(`${serverActivityURL}/${activityId}/delete/${this.getCurrentUserId()}`).then(() =>  this.componentDidMount());
+        axios.delete(`${serverActivityURL}/${activityId}/user/${this.getCurrentUserId()}`).then(() =>  this.componentDidMount());
     };
 
     getCurrentUserId = () => {
@@ -90,7 +86,7 @@ class FullActivity extends Component {
     registrationHandler = (activity) => {
         let activityId = activity._id;
         this.setState({isLoaded:false});
-        axios.post(`${serverActivityURL}/${activityId}/add/${this.getCurrentUserId()}`,{
+        axios.put(`${serverActivityURL}/${activityId}/user/${this.getCurrentUserId()}`,{
             ...activity,
             personId: this.getCurrentUserId()
         }).then(() =>  this.componentDidMount());

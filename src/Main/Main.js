@@ -9,6 +9,7 @@ import FullActivity from "../Activity/FullActivity";
 import Registration from "../Registration/Registration";
 import Login from "../Login/Login";
 import Logout from "../Login/Logout";
+import PersonsList from "../Person/PersonsList";
 
 const routes = require('../Main/Routes');
 

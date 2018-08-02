@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {registerUser} from "../actions/authActions";
+import { withRouter } from 'react-router-dom';
+
 
 import './Registration.css'
 import MainBlock from "./MainBlock"
 import EducationBlock from "./EducationBlock";
 import AdditionalBlock from "./AdditionalBlock";
 
-// const internUrl = "http://localhost:3004/people";
 const routes = require('../Main/Routes');
-// const internUrl = routes.serverPeople;
 const internUrl = routes.serverRegistration;
 
 
@@ -190,6 +192,13 @@ class Registration extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.errors) {
+            console.log(nextProps.errors);
+            this.setState({isResponseValid:false})
+        }
+    }
+
     selectMenu = () => {
         let menuId = this.state.menuId;
         if(menuId === 1) {
@@ -230,16 +239,18 @@ class Registration extends Component {
         for(let key in person) {
             transferPerson = {...transferPerson, [key]:person[key].value}
         }
-        axios.post(internUrl,transferPerson)
-            .then((res) => {
-                axios.defaults.headers.common['Authorization'] = res.data.token;
-                localStorage.setItem('jwtToken', res.data.token);
-                localStorage.setItem('id', res.data._id);
-                localStorage.setItem('img', res.data.photo);
-                this.setState({redirect:true})
-            }).catch(e => {
-            this.setState({isResponseValid: false, isLoaded:true});
-            console.log(e.response.data)});
+
+        this.props.registerUser(transferPerson, this.props.history);
+        // axios.post(internUrl,transferPerson)
+        //     .then((res) => {
+        //         axios.defaults.headers.common['Authorization'] = res.data.token;
+        //         localStorage.setItem('jwtToken', res.data.token);
+        //         localStorage.setItem('id', res.data._id);
+        //         localStorage.setItem('img', res.data.photo);
+        //         this.setState({redirect:true})
+        //     }).catch(e => {
+        //     this.setState({isResponseValid: false, isLoaded:true});
+        //     console.log(e.response.data)});
     };
 
     onChangeHandler = (event) => {
@@ -288,4 +299,9 @@ class Registration extends Component {
     }
 }
 
-export default Registration;
+const mapStateToProps = state => ({
+  auth:state.auth,
+  errors: state.errors
+});
+
+export default connect(mapStateToProps,{registerUser}) (withRouter(Registration));

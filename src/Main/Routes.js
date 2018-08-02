@@ -21,6 +21,7 @@ const routes = {
     appHomeRelative:`home`,
     appLogoutRelative:`index/logout`,
     appLoginRelative:`index/login`,
+    appLogin:'login',
     appRegistrationRelative:`index/registration`,
 
 };

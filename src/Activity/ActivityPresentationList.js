@@ -47,7 +47,7 @@ class ActivityPresentationList extends Component {
     registrationHandler = (activity) => {
         let activityId = activity._id;
         this.setState({isLoaded:false});
-        axios.post(`${serverActivityURL}/${activityId}/add/${this.getCurrentUserId()}`,{
+        axios.put(`${serverActivityURL}/${activityId}/user/${this.getCurrentUserId()}`,{
             ...activity,
             personId: this.getCurrentUserId()
         }).then(() => this.setState({activityId:activityId},() => this.setState({redirect:true, isLoaded:true})));
