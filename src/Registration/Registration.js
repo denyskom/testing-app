@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {registerUser} from "../actions/authActions";
@@ -12,7 +11,6 @@ import EducationBlock from "./EducationBlock";
 import AdditionalBlock from "./AdditionalBlock";
 
 const routes = require('../Main/Routes');
-const internUrl = routes.serverRegistration;
 
 
 
@@ -197,6 +195,10 @@ class Registration extends Component {
             console.log(nextProps.errors);
             this.setState({isResponseValid:false, menuId:1})
         }
+
+        if(nextProps.auth.isAuthenticated) {
+            this.setState({redirect:true})
+        }
     }
 
     selectMenu = () => {
@@ -241,16 +243,6 @@ class Registration extends Component {
         }
 
         this.props.registerUser(transferPerson, this.props.history);
-        // axios.post(internUrl,transferPerson)
-        //     .then((res) => {
-        //         axios.defaults.headers.common['Authorization'] = res.data.token;
-        //         localStorage.setItem('jwtToken', res.data.token);
-        //         localStorage.setItem('id', res.data._id);
-        //         localStorage.setItem('img', res.data.photo);
-        //         this.setState({redirect:true})
-        //     }).catch(e => {
-        //     this.setState({isResponseValid: false, isLoaded:true});
-        //     console.log(e.response.data)});
     };
 
     onChangeHandler = (event) => {

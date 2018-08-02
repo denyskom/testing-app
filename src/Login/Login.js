@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './Login.css'
 import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {loginUser} from "../actions/authActions";
+import { withRouter } from 'react-router-dom';
 
-import axios from "axios/index";
+
 const routes = require('../Main/Routes');
-const jwtDecode = require('jwt-decode');
-const loginUrl = routes.serverLogin;
 
 
 
@@ -23,6 +24,17 @@ class Login extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.errors) {
+            console.log(nextProps.errors);
+            this.setState({isResponseValid:false})
+        }
+
+        if(nextProps.auth.isAuthenticated) {
+            this.setState({redirect:true})
+        }
+    }
+
     inputHandler = (event) => {
         let name = event.target.name;
         let value = event.target.value;
@@ -32,24 +44,7 @@ class Login extends Component {
 
     buttonHandler = (event) => {
         event.preventDefault();
-        axios.post(loginUrl, {email:this.state.email,password:this.state.password})
-            .then(res => {
-                const user = jwtDecode(res.data.token);
-                axios.defaults.headers.common['Authorization'] = res.data.token;
-                localStorage.setItem('jwtToken', res.data.token);
-                console.log(res.data.token);
-                this.logInUser('id', user.id);
-                localStorage.setItem('img', user.photo);
-                this.setState({redirect:true})
-            }).catch(e => {
-                let errors = e.response.data;
-                console.log(errors);
-                let error ='';
-                for (let key in errors) {
-                    error = `${error}${errors[key]}. `
-                }
-                this.setState({isResponseValid: false, isLoaded:true, errorMassage:error});
-        });
+        this.props.loginUser({email:this.state.email,password:this.state.password});
     };
 
     logInUser = (name,id) => {
@@ -88,4 +83,9 @@ class Login extends Component {
 
 }
 
-export default Login;
+const mapStateToProps = state => ({
+    auth:state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps,{loginUser})(withRouter(Login));
