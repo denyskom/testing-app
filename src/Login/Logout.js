@@ -1,5 +1,9 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import {logOutUser} from "../actions/authActions";
+import store from "../store";
+
+
 import './LoginMarker.css'
 const defaultImage = "https://ppgzone-39u4nsxgmu93y.netdna-ssl.com/wp-content/uploads/batman-profile-pic.jpg";
 
@@ -7,6 +11,7 @@ const defaultImage = "https://ppgzone-39u4nsxgmu93y.netdna-ssl.com/wp-content/up
 
 const logout = () => {
     localStorage.removeItem('id');
+    store.dispatch(logOutUser());
     return(
          <Redirect to='../../'/>
     )
