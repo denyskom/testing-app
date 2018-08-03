@@ -26,8 +26,8 @@ class Main extends Component {
                         <div className="under-header">
                             <main className="custom-container">
                                 <Route path={`/${routes.appHomeRelative}`} exact component={ActivityPresentationList}/>
-                                <Route path={`/${routes.appPeopleRelative}`} exact component={Person}/>
-                                <Route path={`/${routes.appPeopleRelative}/:id`} exact component={Person}/>
+                                <Route path={`/${routes.appProfileRelative}`} exact component={Person}/>
+                                <Route path={`/${routes.appProfileRelative}/:id`} exact component={Person}/>
                                 <Route path={`/${routes.appActivitiesRelative}/:id`}  exact component={FullActivity}/>
                             </main>
                         </div>

@@ -9,7 +9,7 @@ const loginMarker = (props) => {
     return(
         <div>
             <div className={props.isLogged?"marker-inner":"invisible"}>
-                <Link to={`../../${routes.appPeopleRelative}`}>
+                <Link to={`../../${routes.appProfileRelative}`}>
                     <img src={props.avatar}/>
                 </Link>
                 <Link to={`../../${routes.appLogoutRelative}`} className="head-link">Вийти</Link>

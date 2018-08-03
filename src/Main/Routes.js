@@ -11,8 +11,8 @@ const routes = {
     serverRegistration: `${serverHost}/register`,
     serverStages: `${serverHost}/stages`,
 
-    appPeopleRelative:'home/people',
-    appPeople:`${appHost}/home/people`,
+    appProfileRelative:'home/profile',
+    appProfile:`${appHost}/home/profile`,
 
     appActivitiesRelative:'home/activities',
     appActivities:`${appHost}/home/activities`,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../config/axios';
 import './Person.css'
 import MainInfo from "./ContactInfo";
 import Info from "./Info";
@@ -7,6 +7,8 @@ import AdditionalInfo from "./AdditionalInfo";
 import MiniActivity from "../Activity/MiniActivity";
 import {Redirect} from 'react-router-dom';
 import routes from '../Main/Routes';
+import {connect} from 'react-redux';
+
 
 const internUrl = routes.serverPeople;
 
@@ -17,7 +19,7 @@ class Person extends Component {
         this.state = {
             isLoaded:false,
             person:{},
-            personId:localStorage.getItem('id'),
+            personId:this.props.auth.user.id,
             menuId:1,
             redirect:false,
         }
@@ -147,4 +149,9 @@ class Person extends Component {
     }
 }
 
-export default Person;
+const mapStateToProps = state => ({
+    auth:state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps,null)(Person);

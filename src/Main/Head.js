@@ -25,7 +25,7 @@ class Head extends Component {
             <li className={menuClass}><Link className="head-link" to={`../../${routes.appHomeRelative}`}>Головна</Link>
             </li>
             {/*<li className={menuClass}><a className="head-link" href="#">Moї активності</a></li>*/}
-            <li className={menuClass}><Link className="head-link" to={`../../${routes.appPeopleRelative}`}>Moї дані</Link>
+            <li className={menuClass}><Link className="head-link" to={`../../${routes.appProfileRelative}`}>Moї дані</Link>
             </li>
             <li className="header-item-right"><LoginMarker isLogged={this.checkUserAuth()}
                                                            avatar={this.props.auth.user.photo}/></li>
