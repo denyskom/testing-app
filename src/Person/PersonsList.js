@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ContactInfo from "./ContactInfo";
-const routes = require('../Main/Routes');
+import routes from '../Main/Routes';
 
 
 

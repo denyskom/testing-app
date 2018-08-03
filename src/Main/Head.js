@@ -6,8 +6,7 @@ import LoginMarker from "../Login/LoginMarker";
 import Wrapper from "../Wrapper/Wrapper"
 import Media from "react-media"
 import Menu from '../../node_modules/react-icons/lib/md/menu'
-
-const routes = require('../Main/Routes');
+import routes from '../Main/Routes';
 
 
 class Head extends Component {

@@ -2,13 +2,14 @@ import React from 'react';
 import './List.css'
 import ButtonWithMassage from "../Collapsible/ButtonWithMassage";
 import { Link } from 'react-router-dom'
+import routes from '../Main/Routes';
+
 
 
 // import Checked from '../../node_modules/react-icons/lib/md/check-circle'
 
 
 const invisibleElement = "invisible";
-const routes = require('../Main/Routes');
 
 
 const activityCard = (props) => {

@@ -1,7 +1,7 @@
-import axios from '../config/axios';
+import axios, {setAuthToken} from '../config/axios';
 import {GET_ERRORS, REMOVE_ERRORS, SET_CURRENT_USER, REMOVE_CURRENT_USER} from './types';
-const jwtDecode = require('jwt-decode');
-const routes = require('../Main/Routes');
+import jwt_decode from 'jwt-decode';
+import routes from '../Main/Routes';
 
 
 
@@ -20,17 +20,16 @@ export const registerUser = (userData) => dispatch => {
 
 export const loginUser = (userData) => dispatch => {
     axios.post(routes.serverLogin, userData).then(res => {
-            console.log(res.data.user);
             localStorage.setItem('jwtToken', res.data.token);
-            localStorage.setItem('id', res.data.user._id);
-            localStorage.setItem('img', res.data.user.photo);
-            axios.defaults.headers.common['Authorization'] = res.data.token;
-
+            const decoded =jwt_decode(res.data.token);
+        localStorage.setItem('id', decoded.id);
+            localStorage.setItem('img', decoded.photo);
+            setAuthToken(res.data.token);
         dispatch ({
                 type:SET_CURRENT_USER,
                 payload: {
                     isAuthenticated: true,
-                    user:res.data.user
+                    user:decoded
                 }
         })}
     ).catch(err => dispatch({
@@ -39,7 +38,11 @@ export const loginUser = (userData) => dispatch => {
     }))
 };
 
+
 export const logOutUser = () => {
+    localStorage.removeItem('id');
+    localStorage.removeItem('jwtToken');
+    setAuthToken({});
     return({
         type: REMOVE_CURRENT_USER,
     })

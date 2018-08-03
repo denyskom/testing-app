@@ -9,8 +9,7 @@ import FullActivity from "../Activity/FullActivity";
 import Registration from "../Registration/Registration";
 import Login from "../Login/Login";
 import Logout from "../Login/Logout";
-
-const routes = require('../Main/Routes');
+import routes from '../Main/Routes';
 
 const main = () => {
     return(

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 import {logOutUser} from "../actions/authActions";
+import {setAuthToken} from '../config/axios';
 import store from "../store";
 
 
@@ -10,7 +11,6 @@ const defaultImage = "https://ppgzone-39u4nsxgmu93y.netdna-ssl.com/wp-content/up
 
 
 const logout = () => {
-    localStorage.removeItem('id');
     store.dispatch(logOutUser());
     return(
          <Redirect to='../../'/>

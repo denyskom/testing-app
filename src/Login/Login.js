@@ -6,9 +6,7 @@ import {loginUser} from "../actions/authActions";
 import {withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import store from "../store";
-
-
-const routes = require('../Main/Routes');
+import routes from '../Main/Routes';
 
 
 class Login extends Component {

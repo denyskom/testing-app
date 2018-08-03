@@ -6,9 +6,8 @@ import CollapsibleButton from "../Collapsible/CollapsibleButton";
 import CommentsSection from "./Comments/CommentsSection";
 import ActivityCard from "./ActivityCard";
 import {Redirect} from 'react-router-dom';
+import routes from '../Main/Routes';
 
-
-const routes = require('../Main/Routes');
 const activityServerURL = routes.serverActivities;
 const stagesServerURL = routes.serverStages;
 const serverActivityURL = routes.serverActivity;

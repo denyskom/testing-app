@@ -6,11 +6,8 @@ import Info from "./Info";
 import AdditionalInfo from "./AdditionalInfo";
 import MiniActivity from "../Activity/MiniActivity";
 import {Redirect} from 'react-router-dom';
+import routes from '../Main/Routes';
 
-
-// const internUrl = "http://localhost:3004/people";
-
-const routes = require('../Main/Routes');
 const internUrl = routes.serverPeople;
 
 
@@ -28,7 +25,7 @@ class Person extends Component {
 
     componentDidMount() {
         axios.get(
-            `${internUrl}/${this.state.personId}`).then(response => {console.log(response);this.setState({person:response.data,isLoaded:true})}
+            `${internUrl}/${this.state.personId}`).then(response => {this.setState({person:response.data,isLoaded:true})}
             )
     };
 

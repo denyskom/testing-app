@@ -3,9 +3,8 @@ import axios  from '../config/axios';
 import ActivityCard from "./ActivityCard";
 import './List.css'
 import {Redirect} from 'react-router-dom';
+import routes from '../Main/Routes';
 
-
-const routes = require('../Main/Routes');
 const activityServerURL = routes.serverActivities;
 const activityURL = routes.appActivities;
 const serverActivityURL = routes.serverActivity;
