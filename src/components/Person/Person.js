@@ -23,12 +23,16 @@ class Person extends Component {
             menuId:1,
             redirect:false,
         }
+
     }
 
     componentDidMount() {
-        axios.get(
-            `${internUrl}/${this.state.personId}`).then(response => {this.setState({person:response.data,isLoaded:true})}
-            )
+        this.setState({person:this.props.auth.user,isLoaded:true})
+        // axios.get(
+        //     `${internUrl}/${this.state.personId}`).then(response => {this.setState({person:response.data,isLoaded:true})}
+        //     )
+
+
     };
 
     renderEducationInfo = () => {

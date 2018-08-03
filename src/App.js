@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, withRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Main from './components/Main/Main';
 import store from './store'
 import {setAuthToken} from './config/axios';
 import jwt_decode from 'jwt-decode';
-import {logOutUser} from './actions/authActions';
+import {logOutUser, loadCurrentUser} from './actions/authActions';
 import routes from './components/Main/Routes'
 import {SET_CURRENT_USER} from "./actions/types";
 
@@ -17,12 +17,9 @@ if(localStorage.jwtToken) {
 
     if(decoded.exp > currentTime) {
         setAuthToken(localStorage.jwtToken);
-        store.dispatch({
-            type:SET_CURRENT_USER,
-            payload: {
-            isAuthenticated: true,
-                user:decoded
-        }});
+        console.log(window.location.href);
+        store.dispatch(loadCurrentUser(decoded));
+
     }
 
     if(decoded.exp < currentTime) {

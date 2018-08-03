@@ -27,8 +27,29 @@ export const loginUser = (userData) => dispatch => {
                 type:SET_CURRENT_USER,
                 payload: {
                     isAuthenticated: true,
-                    user:decoded
+                    user:{
+                        ...decoded,
+                        ...res.data.user
+                    }
                 }
+        })}
+    ).catch(err => dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+    }))
+};
+
+export const loadCurrentUser = (decodedUser) => dispatch => {
+    axios.get(`${routes.serverPeople}/${decodedUser.id}`).then(res => {
+        dispatch ({
+            type:SET_CURRENT_USER,
+            payload: {
+                isAuthenticated: true,
+                user:{
+                    ...decodedUser,
+                    ...res.data
+                }
+            }
         })}
     ).catch(err => dispatch({
         type: GET_ERRORS,
