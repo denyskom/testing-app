@@ -1,21 +1,24 @@
 import axios from '../config/axios';
-import {GET_ERRORS, SET_CURRENT_USER, REMOVE_CURRENT_USER} from './types';
+import {GET_ERRORS, REMOVE_ERRORS, SET_CURRENT_USER, REMOVE_CURRENT_USER} from './types';
 const jwtDecode = require('jwt-decode');
 const routes = require('../Main/Routes');
 
 
 
 
-export const registerUser = (userData, history) => dispatch => {
+export const registerUser = (userData) => dispatch => {
     axios.post(routes.serverRegistration, userData)
-        .then(res => dispatch(loginUser({email:userData.email, password:userData.password})))
+        .then(res => {
+            dispatch(loginUser({email:userData.email, password:userData.password},dispatch({type:REMOVE_ERRORS})
+            ));
+        })
         .catch(err => dispatch({
             type: GET_ERRORS,
             payload: err.response.data
         }))
 };
 
-export const loginUser = (userData, history) => dispatch => {
+export const loginUser = (userData) => dispatch => {
     axios.post(routes.serverLogin, userData).then(res => {
             console.log(res.data.user);
             localStorage.setItem('jwtToken', res.data.token);

@@ -26,8 +26,10 @@ const activityCard = (props) => {
                                       title="Зареєструватися" massage={
                 <span style={{marginLeft:"4px"}}>
                                                Для реєстрації вам потрібно
-                                               <a style={{color: "rgb(23, 162, 184)"}} href={`../../${routes.appLoginRelative}`}> Увійти </a> або
-                                               <a style={{color: "rgb(23, 162, 184)"}} href={`../../${routes.appRegistrationRelative}`}> Створити </a>
+                                               <Link style={{color: "rgb(23, 162, 184)"}}
+                                                     to={`../../${routes.appLoginRelative}`}> Увійти </Link> або
+                                               <Link style={{color: "rgb(23, 162, 184)"}}
+                                                     to={`../../${routes.appRegistrationRelative}`}> Створити </Link>
                                                новий аккаунт.
                                            </span>}/>
         }

@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {loginUser} from "../actions/authActions";
 import {withRouter} from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import store from "../store";
 
 
@@ -105,7 +106,7 @@ class Login extends Component {
                            placeholder="Email"/>
                     <input value={state.password} onChange={this.inputHandler}
                            type="password" name="password" placeholder="Пароль"/>
-                    <a href='./registration'>Зареєструватися?</a>
+                    <Link to='./registration'>Зареєструватися?</Link>
                     <button type="submit" onClick={this.buttonHandler} className="btn btn-outline-info">Увійти</button>
                 </div>
             </form>

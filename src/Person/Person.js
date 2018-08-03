@@ -115,7 +115,7 @@ class Person extends Component {
 
     render() {
         if(this.state.redirect){
-            return <Redirect to={`../../`}/>
+            return <Redirect to={`../../index/logout`}/>
         }
         if(!this.state.personId){
             // return <Redirect to="../../index/login"/>

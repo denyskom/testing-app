@@ -239,7 +239,7 @@ class Registration extends Component {
             transferPerson = {...transferPerson, [key]:person[key].value}
         }
 
-        this.props.registerUser(transferPerson, this.props.history);
+        this.props.registerUser(transferPerson);
     };
 
     onChangeHandler = (event) => {
