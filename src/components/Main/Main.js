@@ -9,8 +9,8 @@ import FullActivity from "../Activity/FullActivity";
 import Registration from "../Registration/Registration";
 import Login from "../Login/Login";
 import Logout from "../Login/Logout";
-import routes from '../Main/Routes';
-import store from '../store';
+import routes from './Routes';
+import store from '../../store';
 
 
 

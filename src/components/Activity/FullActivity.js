@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios  from '../config/axios';
+import axios  from '../../config/axios';
 import Task from "../Tasks/Task";
 import './FullActivity.css'
 import CollapsibleButton from "../Collapsible/CollapsibleButton";

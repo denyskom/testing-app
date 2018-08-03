@@ -1,7 +1,7 @@
 import React from 'react'
-import Phone from '../../node_modules/react-icons/lib/fa/phone'
-import Mail from '../../node_modules/react-icons/lib/go/mail'
-import Birth from '../../node_modules/react-icons/lib/fa/birthday-cake'
+import Phone from '../../../node_modules/react-icons/lib/fa/phone'
+import Mail from '../../../node_modules/react-icons/lib/go/mail'
+import Birth from '../../../node_modules/react-icons/lib/fa/birthday-cake'
 import CollapsibleButton from "../Collapsible/CollapsibleButton";
 
 

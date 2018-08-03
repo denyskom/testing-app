@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios  from '../config/axios';
+import axios  from '../../config/axios';
 import ActivityCard from "./ActivityCard";
 import './List.css'
 import {Redirect} from 'react-router-dom';

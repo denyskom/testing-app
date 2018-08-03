@@ -1,5 +1,5 @@
 import axios from 'axios';
-import routes from "../Main/Routes";
+import routes from "../components/Main/Routes";
 
 export const setAuthToken = token => {
     if (token) {

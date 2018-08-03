@@ -1,14 +1,14 @@
 import axios, {setAuthToken} from '../config/axios';
 import {GET_ERRORS, REMOVE_ERRORS, SET_CURRENT_USER, REMOVE_CURRENT_USER} from './types';
 import jwt_decode from 'jwt-decode';
-import routes from '../Main/Routes';
+import routes from '../components/Main/Routes';
 
 
 
 
 export const registerUser = (userData) => dispatch => {
     axios.post(routes.serverRegistration, userData)
-        .then(res => {
+        .then(() => {
             dispatch(loginUser({email:userData.email, password:userData.password},dispatch({type:REMOVE_ERRORS})
             ));
         })

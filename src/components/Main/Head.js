@@ -5,7 +5,7 @@ import './Head.css'
 import LoginMarker from "../Login/LoginMarker";
 import Wrapper from "../Wrapper/Wrapper"
 import Media from "react-media"
-import Menu from '../../node_modules/react-icons/lib/md/menu'
+import Menu from '../../../node_modules/react-icons/lib/md/menu'
 import routes from '../Main/Routes';
 
 

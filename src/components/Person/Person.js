@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from '../config/axios';
+import axios from '../../config/axios';
 import './Person.css'
 import MainInfo from "./ContactInfo";
 import Info from "./Info";
@@ -99,7 +99,7 @@ class Person extends Component {
 
 };
     getCurrentUserId = () => {
-        return localStorage.getItem('id');
+        return this.props.auth.user.id
     };
 
     changeMenu = (event) => {

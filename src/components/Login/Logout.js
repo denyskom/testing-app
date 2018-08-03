@@ -1,8 +1,8 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import {logOutUser} from "../actions/authActions";
-import {setAuthToken} from '../config/axios';
-import store from "../store";
+import {logOutUser} from "../../actions/authActions";
+import {setAuthToken} from '../../config/axios';
+import store from "../../store";
 
 
 import './LoginMarker.css'

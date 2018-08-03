@@ -3,12 +3,12 @@ import './App.css';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import Main from './Main/Main';
+import Main from './components/Main/Main';
 import store from './store'
 import {setAuthToken} from './config/axios';
 import jwt_decode from 'jwt-decode';
 import {logOutUser} from './actions/authActions';
-import routes from './Main/Routes'
+import routes from './components/Main/Routes'
 import {SET_CURRENT_USER} from "./actions/types";
 
 if(localStorage.jwtToken) {

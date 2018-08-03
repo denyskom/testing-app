@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import './Login.css'
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {loginUser} from "../actions/authActions";
+import {loginUser} from "../../actions/authActions";
 import {withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import store from "../store";
+import store from "../../store";
 import routes from '../Main/Routes';
 
 
