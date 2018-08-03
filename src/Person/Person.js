@@ -114,10 +114,9 @@ class Person extends Component {
 
     render() {
         if(this.state.redirect){
-            return <Redirect to={`../../index/logout`}/>
+            return <Redirect to={`../../${routes.appLogoutRelative}`}/>
         }
         if(!this.state.personId){
-            // return <Redirect to="../../index/login"/>
             return <Redirect to={`../../${routes.appLoginRelative}`}/>
 
         }

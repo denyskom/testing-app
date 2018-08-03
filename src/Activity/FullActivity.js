@@ -7,6 +7,7 @@ import CommentsSection from "./Comments/CommentsSection";
 import ActivityCard from "./ActivityCard";
 import {Redirect} from 'react-router-dom';
 import routes from '../Main/Routes';
+import {connect} from "react-redux";
 
 const activityServerURL = routes.serverActivities;
 const stagesServerURL = routes.serverStages;
@@ -48,11 +49,11 @@ class FullActivity extends Component {
     };
 
     getCurrentUserId = () => {
-        return localStorage.getItem('id');
+        return this.props.auth.user.id
     };
 
     checkIfUserAuth = () => {
-        return !!localStorage.getItem('id');
+        return this.props.auth.isAuthenticated;
     };
 
     checkExpiration = (activity) => {
@@ -146,4 +147,9 @@ class FullActivity extends Component {
     }
 }
 
-export default FullActivity;
+const mapStateToProps = state => ({
+    auth:state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps,null)(FullActivity);

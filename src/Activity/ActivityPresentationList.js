@@ -4,6 +4,7 @@ import ActivityCard from "./ActivityCard";
 import './List.css'
 import {Redirect} from 'react-router-dom';
 import routes from '../Main/Routes';
+import {connect} from "react-redux";
 
 const activityServerURL = routes.serverActivities;
 const activityURL = routes.appActivities;
@@ -56,11 +57,11 @@ class ActivityPresentationList extends Component {
     };
 
     checkIfUserAuth = () => {
-        return !!localStorage.getItem('id');
+        return this.props.auth.isAuthenticated;
     };
 
     getCurrentUserId = () => {
-        return localStorage.getItem('id');
+        return this.props.auth.user.id
     };
 
 
@@ -83,4 +84,9 @@ class ActivityPresentationList extends Component {
 
 }
 
-export default ActivityPresentationList;
+const mapStateToProps = state => ({
+    auth:state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps,null)(ActivityPresentationList);

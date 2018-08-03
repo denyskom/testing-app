@@ -22,8 +22,6 @@ export const loginUser = (userData) => dispatch => {
     axios.post(routes.serverLogin, userData).then(res => {
             localStorage.setItem('jwtToken', res.data.token);
             const decoded =jwt_decode(res.data.token);
-        localStorage.setItem('id', decoded.id);
-            localStorage.setItem('img', decoded.photo);
             setAuthToken(res.data.token);
         dispatch ({
                 type:SET_CURRENT_USER,
