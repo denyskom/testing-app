@@ -86,7 +86,7 @@ class Login extends Component {
     render() {
         let state = this.state;
         if (!state.isLoaded) {
-            return (<div className="loader"></div>)
+            return (<div className="loader"> </div>)
         }
         if (state.redirect) {
             return <Redirect to="../../"/>
@@ -97,7 +97,7 @@ class Login extends Component {
                 <div className="login-container">
                     <img src={require('../Logo/logo.png')} alt="InterLink"/>
                     <h3>Please sign in</h3>
-                    {this.state.isResponseValid ? <div className="white"></div> :
+                    {this.state.isResponseValid ? <div className="white"> </div> :
                         <span className={"warning"}>{this.state.errorMassage}</span>
                     }
 
@@ -120,5 +120,5 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps,{loginUser})(withRouter(Login));
-// export default Login;
+// export default connect(mapStateToProps,{loginUser})(withRouter(Login));
+export default Login;

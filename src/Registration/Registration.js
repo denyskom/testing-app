@@ -10,9 +10,6 @@ import MainBlock from "./MainBlock"
 import EducationBlock from "./EducationBlock";
 import AdditionalBlock from "./AdditionalBlock";
 
-const routes = require('../Main/Routes');
-
-
 
 // const blocksCount = 3;
 
@@ -234,7 +231,7 @@ class Registration extends Component {
         }
     };
 
-    registrationHandler = (event) => {
+    registrationHandler = () => {
         this.setState({isLoaded:false});
         let person=this.state.person;
         let transferPerson =  {};

@@ -22,7 +22,7 @@ const activityCard = (props) => {
         }
 
         if(!props.isAuth) {
-            return <ButtonWithMassage className={props.isActive?"btn btn-info":invisibleElement} textClass="warning"
+            return <ButtonWithMassage className={props.isActive?"btn btn-info":invisibleElement} textclass="warning"
                                       title="Зареєструватися" massage={
                 <span style={{marginLeft:"4px"}}>
                                                Для реєстрації вам потрібно

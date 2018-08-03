@@ -16,7 +16,7 @@ class ButtonWithMassage extends Component{
 
 
     render() {
-        let underClass = `${this.props.textClass}`;
+        let underClass = this.props.textClass?`${this.props.textclass}`:"invisible";
 
         if(!this.state.isOpened) {
             underClass = "invisible"
