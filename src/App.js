@@ -8,8 +8,8 @@ import store from './store'
 import {setAuthToken} from './config/axios';
 import jwt_decode from 'jwt-decode';
 import {logOutUser, loadCurrentUser} from './actions/authActions';
+import {loadActivities} from './actions/activitiesActions';
 import routes from './components/Main/Routes'
-import {SET_CURRENT_USER} from "./actions/types";
 
 if(localStorage.jwtToken) {
     const decoded = jwt_decode(localStorage.jwtToken);
@@ -18,7 +18,7 @@ if(localStorage.jwtToken) {
     if(decoded.exp > currentTime) {
         setAuthToken(localStorage.jwtToken);
         console.log(window.location.href);
-        store.dispatch(loadCurrentUser(decoded));
+        store.dispatch(loadCurrentUser());
 
     }
 
@@ -27,6 +27,8 @@ if(localStorage.jwtToken) {
         window.location.href = `../../${routes.appLoginRelative}`
     }
 }
+
+store.dispatch(loadActivities());
 
 class App extends Component {
     render() {

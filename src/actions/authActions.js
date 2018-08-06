@@ -2,6 +2,8 @@ import axios, {setAuthToken} from '../config/axios';
 import {GET_ERRORS, REMOVE_ERRORS, SET_CURRENT_USER, REMOVE_CURRENT_USER} from './types';
 import jwt_decode from 'jwt-decode';
 import routes from '../components/Main/Routes';
+import decodeCurrentUser from '../utils/decodeCurrentUser'
+
 
 
 
@@ -39,7 +41,8 @@ export const loginUser = (userData) => dispatch => {
     }))
 };
 
-export const loadCurrentUser = (decodedUser) => dispatch => {
+export const loadCurrentUser = () => dispatch => {
+    let decodedUser = decodeCurrentUser();
     axios.get(`${routes.serverPeople}/${decodedUser.id}`).then(res => {
         dispatch ({
             type:SET_CURRENT_USER,

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import axios  from '../../config/axios';
-import ActivityCard from "./ActivityCard";
+import ActivityCard from './ActivityCard';
 import './List.css'
 import {Redirect} from 'react-router-dom';
 import routes from '../Main/Routes';
 import {connect} from "react-redux";
+import isEmpty from '../../utils/isEmpty';
+import {loadCurrentUser} from '../../actions/authActions'
 
-const serverActivitiesURL = routes.serverActivities;
 const activityURL = routes.appActivities;
 const serverActivityURL = routes.serverActivity;
 
@@ -22,11 +23,20 @@ class ActivityPresentationList extends Component {
 
 
     componentDidMount() {
-        axios.get(serverActivitiesURL).then(response => {
-            let activities = response.data;
-            this.setState({activities:activities,isLoaded:true})
-        })
+        if (isEmpty(this.state.activities) && this.props.activities.isLoaded) {
+                    this.setState({
+                        activities: this.props.activities.activities,
+                        isLoaded: true
+                    })
+                }
     }
+
+    componentWillReceiveProps(nextProps) {
+        if (isEmpty(this.state.activities)) {
+            this.setState({activities:nextProps.activities.activities, isLoaded: true})
+        }
+    }
+
 
     renderActivities = () => {
         return this.state.activities.map(activity => {
@@ -49,7 +59,9 @@ class ActivityPresentationList extends Component {
         axios.put(`${serverActivityURL}/${activityId}/user/${this.getCurrentUserId()}`,{
             ...activity,
             personId: this.getCurrentUserId()
-        }).then(() => this.setState({activityId:activityId},() => this.setState({redirect:true, isLoaded:true})));
+        }).then(() => this.setState({activityId:activityId},() =>{
+            this.props.loadCurrentUser();
+            this.setState({redirect:true, isLoaded:true})}));
     };
 
     checkExpiration = (activity) => {
@@ -90,4 +102,4 @@ const mapStateToProps = state => ({
     activities:state.activities,
 });
 
-export default connect(mapStateToProps,null)(ActivityPresentationList);
+export default connect(mapStateToProps,{loadCurrentUser})(ActivityPresentationList);

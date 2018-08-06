@@ -8,6 +8,8 @@ import ActivityCard from "./ActivityCard";
 import {Redirect} from 'react-router-dom';
 import routes from '../Main/Routes';
 import {connect} from "react-redux";
+import {loadCurrentUser} from '../../actions/authActions'
+
 
 const activityServerURL = routes.serverActivities;
 const stagesServerURL = routes.serverStages;
@@ -45,7 +47,11 @@ class FullActivity extends Component {
     deleteActivity = () => {
         let activityId = this.state.activityId;
         this.setState({isLoaded:false});
-        axios.delete(`${serverActivityURL}/${activityId}/user/${this.getCurrentUserId()}`).then(() =>  this.componentDidMount());
+        axios.delete(`${serverActivityURL}/${activityId}/user/${this.getCurrentUserId()}`)
+            .then(() =>  {
+                this.props.loadCurrentUser();
+                this.componentDidMount()
+            });
     };
 
     getCurrentUserId = () => {
@@ -88,7 +94,9 @@ class FullActivity extends Component {
         axios.put(`${serverActivityURL}/${activityId}/user/${this.getCurrentUserId()}`,{
             ...activity,
             personId: this.getCurrentUserId()
-        }).then(() =>  this.componentDidMount());
+        }).then(() =>  {
+            this.props.loadCurrentUser();
+            this.componentDidMount()});
     };
 
     renderActivityForNonAuth = () => {
@@ -152,4 +160,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps,null)(FullActivity);
+export default connect(mapStateToProps,{loadCurrentUser})(FullActivity);

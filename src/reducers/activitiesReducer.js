@@ -1,7 +1,7 @@
 import {LOAD_ACTIVITIES_LIST} from "../actions/types";
 
 const initialState = {
-    activities: {},
+    activities: [],
     isLoaded:false
 };
 
