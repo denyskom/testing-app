@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import axios from '../../config/axios';
 import './Person.css'
-import MainInfo from "./ContactInfo";
+import MainInfo from './ContactInfo';
 import Info from "./Info";
-import AdditionalInfo from "./AdditionalInfo";
-import MiniActivity from "../Activity/MiniActivity";
+import AdditionalInfo from './AdditionalInfo';
+import MiniActivity from '../Activity/MiniActivity';
+import Spinner from '../Spinner/Sprinner'
 import {Redirect} from 'react-router-dom';
 import routes from '../Main/Routes';
 import {connect} from 'react-redux';
@@ -145,7 +146,7 @@ class Person extends Component {
         }
 
         if (!this.state.isLoaded) {
-            return (<div className="loader"> </div>)
+            return(<Spinner/>);
         }
 
         let person = this.state.person;
@@ -176,4 +177,5 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
+export {Person};
 export default connect(mapStateToProps, null)(Person);
