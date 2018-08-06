@@ -8,6 +8,8 @@ import MiniActivity from "../Activity/MiniActivity";
 import {Redirect} from 'react-router-dom';
 import routes from '../Main/Routes';
 import {connect} from 'react-redux';
+import isEmpty from '../../utils/isEmpty'
+
 
 
 const internUrl = routes.serverPeople;
@@ -19,21 +21,29 @@ class Person extends Component {
         this.state = {
             isLoaded:false,
             person:{},
-            personId:this.props.auth.user.id,
             menuId:1,
             redirect:false,
-        }
+        };
 
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(isEmpty(this.state.person)) {
+            this.setState({person:nextProps.auth.user, isLoaded:true})
+
+        }
+    }
+
+
     componentDidMount() {
-        this.setState({person:this.props.auth.user,isLoaded:true})
-        // axios.get(
-        //     `${internUrl}/${this.state.personId}`).then(response => {this.setState({person:response.data,isLoaded:true})}
-        //     )
-
-
+        if(isEmpty(this.state.person)&& !isEmpty(this.props.auth.user)) {
+            this.setState({person:this.props.auth.user,
+                isLoaded:true})
+        }
     };
+
+
+
 
     renderEducationInfo = () => {
         let person = this.state.person;
@@ -120,9 +130,9 @@ class Person extends Component {
         if(this.state.redirect){
             return <Redirect to={`../../${routes.appLogoutRelative}`}/>
         }
-        if(!this.state.personId){
-            return <Redirect to={`../../${routes.appLoginRelative}`}/>
 
+        if(!localStorage.getItem('jwtToken')){
+            return <Redirect to={`../../${routes.appLoginRelative}`}/>
         }
 
         if(!this.state.isLoaded) {
