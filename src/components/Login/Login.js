@@ -94,7 +94,7 @@ class Login extends Component {
         return (
             <form>
                 <div className="login-container">
-                    <img src={require('../Logo/logo.png')} alt="InterLink"/>
+                    <Link to={'../../'}><img src={require('../Logo/logo.png')} alt="InterLink"/></Link>
                     <h3>Please sign in</h3>
                     {this.state.isResponseValid ? <div className="white"> </div> :
                         <span className={"warning"}>{this.state.errorMassage}</span>

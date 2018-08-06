@@ -6,7 +6,7 @@ import {Redirect} from 'react-router-dom';
 import routes from '../Main/Routes';
 import {connect} from "react-redux";
 
-const activityServerURL = routes.serverActivities;
+const serverActivitiesURL = routes.serverActivities;
 const activityURL = routes.appActivities;
 const serverActivityURL = routes.serverActivity;
 
@@ -22,7 +22,7 @@ class ActivityPresentationList extends Component {
 
 
     componentDidMount() {
-        axios.get(activityServerURL).then(response => {
+        axios.get(serverActivitiesURL).then(response => {
             let activities = response.data;
             this.setState({activities:activities,isLoaded:true})
         })
@@ -86,7 +86,8 @@ class ActivityPresentationList extends Component {
 
 const mapStateToProps = state => ({
     auth:state.auth,
-    errors: state.errors
+    errors: state.errors,
+    activities:state.activities,
 });
 
 export default connect(mapStateToProps,null)(ActivityPresentationList);
