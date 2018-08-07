@@ -2,12 +2,17 @@ import React from 'react'
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {Person} from "./Person";
-import Spinner from '../Spinner/Sprinner'
+import Spinner from '../Spinner/Spinner'
 import {Link, Redirect} from 'react-router-dom'
 import routes from '../Main/Routes';
 import * as ls from '../../utils/localStorage'
+import AdditionalInfo from "./AdditionalInfo";
+import MiniActivity from "../Activity/MiniActivity";
+import axios from '../../config/axios'
 
 configure({adapter: new Adapter()});
+jest.mock('axios');
+
 
 describe('<Person />', () => {
     let wrapper;
@@ -35,6 +40,44 @@ describe('<Person />', () => {
             expect(wrapper.find(Spinner)).toHaveLength(1);
         });
 
+    it('should render AdditionalInfo if menuId: 2',
+        () => {
+        wrapper.setState({menuId:2});
+            expect(wrapper.find(AdditionalInfo)).toHaveLength(1);
+        });
+
+    it('should render MiniActivities lis if menuId: 3',
+        () => {
+            wrapper.setState({menuId:3});
+            expect(wrapper.find(MiniActivity)).toHaveLength(auth.user.activities.length);
+        });
+
+    it('should call componentWillReceiveProps and set user from props, if it is absent in state',
+        () => {
+            wrapper.setState({person: {}});
+            wrapper.setProps({auth:auth});
+            expect(wrapper.state().person).toEqual(auth.user);
+        });
+
+    it('should return auth.user.id after triggering method getCurrentUserId',
+        () => {
+            const instance = wrapper.instance();
+            expect(instance.getCurrentUserId()).toEqual(auth.user.id);
+        });
+
+    it('should return auth.user.id after triggering method getCurrentUserId',
+        () => {
+            const resp = {status:204};
+            wrapper = shallow(<Person auth={auth} errors={errors}/>, { lifecycleExperimental: true});
+            const instance = wrapper.instance();
+
+
+            axios.delete.mockImplementation(() => Promise.resolve(resp));
+            instance.deleteUser().then(() => {
+                expect(wrapper.state().redirect).toBeTruthy();
+            });
+
+        });
 
 });
 

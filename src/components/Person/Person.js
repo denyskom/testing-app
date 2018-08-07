@@ -5,7 +5,7 @@ import MainInfo from './ContactInfo';
 import Info from "./Info";
 import AdditionalInfo from './AdditionalInfo';
 import MiniActivity from '../Activity/MiniActivity';
-import Spinner from '../Spinner/Sprinner'
+import Spinner from '../Spinner/Spinner'
 import {Redirect} from 'react-router-dom';
 import routes from '../Main/Routes';
 import {connect} from 'react-redux';
@@ -115,8 +115,8 @@ class Person extends Component {
 
     deleteUser = () => {
         this.setState({isLoaded: false});
-        axios.delete(`${internUrl}/${this.getCurrentUserId()}`).then(() => {
-            this.setState({redirect: true})
+        return axios.delete(`${internUrl}/${this.getCurrentUserId()}`).then(() => {
+            this.setState({redirect: true});
         })
 
     };
