@@ -116,8 +116,6 @@ class Person extends Component {
     deleteUser = () => {
         this.setState({isLoaded: false});
         axios.delete(`${internUrl}/${this.getCurrentUserId()}`).then(() => {
-            localStorage.removeItem('id');
-            localStorage.removeItem('img');
             this.setState({redirect: true})
         })
 

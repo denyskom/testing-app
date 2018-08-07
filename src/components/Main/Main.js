@@ -1,14 +1,15 @@
 import Head from "./Head"
 import React, {Component} from 'react';
 import './Main.css'
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
-import ActivityPresentationList from "../Activity/ActivityPresentationList";
+import ActivityPresentationList from '../Activity/ActivityPresentationList';
 import Person from "../Person/Person";
-import FullActivity from "../Activity/FullActivity";
-import Registration from "../Registration/Registration";
-import Login from "../Login/Login";
-import Logout from "../Login/Logout";
+import FullActivity from '../Activity/FullActivity';
+import Registration from '../Registration/Registration';
+import PrivateRote from './PrivateRoute';
+import Login from '../Login/Login';
+import Logout from '../Login/Logout';
 import routes from './Routes';
 import store from '../../store';
 
@@ -26,6 +27,7 @@ class Main extends Component {
                         <div className="under-header">
                             <main className="custom-container">
                                 <Route path={`/${routes.appHomeRelative}`} exact component={ActivityPresentationList}/>
+                                {/*<PrivateRote component ={Person}/>*/}
                                 <Route path={`/${routes.appProfileRelative}`} exact component={Person}/>
                                 <Route path={`/${routes.appProfileRelative}/:id`} exact component={Person}/>
                                 <Route path={`/${routes.appActivitiesRelative}/:id`}  exact component={FullActivity}/>

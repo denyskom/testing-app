@@ -2,26 +2,37 @@ import React from 'react'
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {Person} from "./Person";
-import {Link} from 'react-router-dom'
+import Spinner from '../Spinner/Sprinner'
+import {Link, Redirect} from 'react-router-dom'
 import routes from '../Main/Routes';
-
-
+import * as ls from '../../utils/localStorage'
 
 configure({adapter: new Adapter()});
 
 describe('<Person />', () => {
     let wrapper;
 
-
     beforeEach(() => {
+        ls.setLocalStorage();
         wrapper = shallow(<Person auth={auth} errors={errors}/>);
+    });
+
+    it('should redirect to login page if there is no jwtToken in localStorage', () => {
+        localStorage.removeItem('jwtToken');
+        wrapper = shallow(<Person auth={auth} errors={errors}/>);
+        expect(wrapper.contains(<Redirect to={`../../${routes.appLoginRelative}`}/>)).toBeTruthy();
+    });
+
+    it('should redirect to logout page when state.redirect equal \'true\'', () => {
+        wrapper.setState({redirect:true});
+        expect(wrapper.contains(<Redirect to={`../../${routes.appLogoutRelative}`}/>)).toBeTruthy();
     });
 
 
     it('should render spinner is state.isLoaded false',
         () => {
-        console.log(wrapper.state());
-            expect(wrapper.hasClass('min-activity card border-success')).toBeTruthy();
+            wrapper.setState({isLoaded: false});
+            expect(wrapper.find(Spinner)).toHaveLength(1);
         });
 
 
