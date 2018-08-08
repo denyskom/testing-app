@@ -12,6 +12,7 @@ import Login from '../Login/Login';
 import Logout from '../Login/Logout';
 import routes from './Routes';
 import store from '../../store';
+import LeadColoumn from "../LeadBoard/LeadColoumn";
 
 
 
@@ -28,6 +29,7 @@ class Main extends Component {
                             <main className="custom-container">
                                 <Route path={`/${routes.appHomeRelative}`} exact component={ActivityPresentationList}/>
                                 {/*<PrivateRote component ={Person}/>*/}
+                                <Route path={`/home/test`} exact component={LeadColoumn}/>
                                 <Route path={`/${routes.appProfileRelative}`} exact component={Person}/>
                                 <Route path={`/${routes.appProfileRelative}/:id`} exact component={Person}/>
                                 <Route path={`/${routes.appActivitiesRelative}/:id`}  exact component={FullActivity}/>

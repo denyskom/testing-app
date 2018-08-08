@@ -1,16 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SmallLead from "./SmallLead";
-import './SmallLead.css.css'
+import './SmallLead.css'
 
 
 
 
 const leadColumn = (props) => {
     let lead = {
-        name:'Lead name',
+        name:'john deal',
         contact: {
             name: 'person name',
+        },
+        owner: {
+
         }
 
     };
